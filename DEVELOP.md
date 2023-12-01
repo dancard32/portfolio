@@ -6,9 +6,18 @@ This markdown is simply for me to write down my thoughts and all the important s
 
 ## Commands
 
+### React Set-up
 Initial React set-up
 ```bash
 git clone https://github.com/dancard32/portfolio.git
 cd portfolio
 npx create-react-app .
+```
+
+### Tailwind CSS Set-up
+
+Refer to the [https://tailwindcss.com/docs/guides/create-react-app](Tailwind CSS) guide, I ran the following:
+```bash
+npm install -D tailwindcss
+npx tailwindcss init
 ```
