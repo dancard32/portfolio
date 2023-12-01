@@ -40,3 +40,9 @@ module.exports = {
 
 }
 ```
+
+### Router Set-up
+The following is a dependency to be able to route 
+```bash
+npm install react-router-dom
+```
