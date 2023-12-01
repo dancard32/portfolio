@@ -21,3 +21,22 @@ Refer to the [https://tailwindcss.com/docs/guides/create-react-app](Tailwind CSS
 npm install -D tailwindcss
 npx tailwindcss init
 ```
+
+### Flowbite Set-up
+
+Flowbite requires the following dependencies
+```bash
+npm install -D postcss autoprefixer
+npm install flowbite flowbite-react
+```
+
+Add flowbite as a required plugin
+```bash
+module.exports = {
+
+    plugins: [
+        require('flowbite/plugin')
+    ]
+
+}
+```
