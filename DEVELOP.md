@@ -41,8 +41,21 @@ module.exports = {
 }
 ```
 
+## React Plugins
 ### Router Set-up
 The following is a dependency to be able to route 
 ```bash
 npm install react-router-dom
+```
+
+### Typewriter
+This allows for the typewriter for the splash page
+```bash
+npm install typewriter-effect
+```
+
+### react-reveal
+Hasn't been updated since like 2018 and must use legacy
+```bash
+npm install react-reveal --legacy-peer-deps
 ```

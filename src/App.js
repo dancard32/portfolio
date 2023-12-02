@@ -3,9 +3,10 @@ import Home from "./pages/home/home";
 import About from "./pages/about/about";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
-import NavBar from './components/navbar'
+import NavBar from './components/navbar';
 import { Flowbite } from 'flowbite-react';
 import PageNotFound from "./pages/PageNotFound";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="*" element={<PageNotFound/>}/>
             </Routes>
+            <Footer/>
         </BrowserRouter>
       </Flowbite>
     </div>
