@@ -4,22 +4,23 @@ import About from "./pages/about/about";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import NavBar from './components/navbar'
-import { DarkThemeToggle, Flowbite } from 'flowbite-react';
+import { Flowbite } from 'flowbite-react';
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
-    <Flowbite>
-    <BrowserRouter>
-      <div className="App bg-primary-600" >
-        <NavBar />
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
-      <DarkThemeToggle />
-    </BrowserRouter>
-    </Flowbite>
+    <div className="App bg-primary-600" >
+      <Flowbite>
+        <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="*" element={<PageNotFound/>}/>
+            </Routes>
+        </BrowserRouter>
+      </Flowbite>
+    </div>
   );
 }
 
