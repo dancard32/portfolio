@@ -71,3 +71,5 @@ Required to scroll to the top of the page
 ```bash
 npm install react-scroll-to-top
 ```
+
+### Blog

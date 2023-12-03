@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FullStackImg() {
+export default function FullStackSVG() {
     const theme = {
         name: "light",
         body: "#FFFFFF", // white
@@ -18,7 +18,7 @@ export default function FullStackImg() {
         avatarMisc: "#e9ecf2", // light gray
         avatarShoes: "#ccd2e3", // gray
     };
-    
+
   return (
     <svg
       id="ade8c9af-7e2e-4eda-b5c8-b06129257226"

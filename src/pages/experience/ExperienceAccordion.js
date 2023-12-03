@@ -4,7 +4,7 @@ import PositionCard from '../../components/Cards/PositionCard'
 
 function ExperienceAccordion() {
     return (
-        <div class="self-center">
+        <div class="flex justify-center">
             <Accordion collapseAll className="w-3/4 self-center outline">
                 <Accordion.Panel>
                     <Accordion.Title>Work Experience</Accordion.Title>

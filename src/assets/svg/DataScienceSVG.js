@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DataScienceImg() {
+export default function DataScienceSVG() {
     const theme = {
         name: "light",
         body: "#FFFFFF", // white

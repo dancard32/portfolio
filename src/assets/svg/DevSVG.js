@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function DevImg(props) {
+export default function DevSVG() {
     const theme = {
         name: "light",
         body: "#FFFFFF", // white

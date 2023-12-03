@@ -1,5 +1,5 @@
 import React from "react";
-import FeelingProud from "./FeelingProudImg";
+import FeelingProudSVG from "../../assets/svg/FeelingProudSVG";
 import Typewriter from "typewriter-effect";
 
 function Splash() {
@@ -42,7 +42,7 @@ function Splash() {
                     </p>
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-7 lg:flex">
-                    <FeelingProud />
+                    <FeelingProudSVG />
                 </div>
             </div>
         </div>

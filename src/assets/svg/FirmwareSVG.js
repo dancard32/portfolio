@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FirmwareImg() {
+export default function FirmwareSVG() {
     const theme = {
         name: "light",
         body: "#FFFFFF", // white

@@ -1,6 +1,6 @@
 import React from "react";
 
-function FeelingProud() {
+function FeelingProudSVG() {
   const theme = {
         name: "light",
         body: "#FFFFFF", // white
@@ -535,4 +535,4 @@ function FeelingProud() {
   );
 }
 
-export default FeelingProud;
+export default FeelingProudSVG;

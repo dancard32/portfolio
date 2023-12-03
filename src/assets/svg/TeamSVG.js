@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TeamImg(props) {
+export default function TeamSVG() {
     const theme = {
         name: "light",
         body: "#FFFFFF", // white

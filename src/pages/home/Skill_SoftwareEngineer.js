@@ -1,24 +1,23 @@
 import React from "react";
 import Typewriter from "typewriter-effect";
 import { Fade } from "react-reveal";
-import FullStackImg from "./FullStackImg";
-import DataScienceImg from "./DataScienceImg";
-import DevImg from "./DevImg";
-import TeamImg from "./TeamImg";
-import ProgrammingImg from "./ProgrammingImg"
-import FirmwareImg from "./FirmwareImg"
+import FullStackImg from "../../assets/svg/FullStackSVG";
+import DataScienceSVG from "../../assets/svg/DataScienceSVG";
+import DevImg from "../../assets/svg/DevSVG";
+import TeamImg from "../../assets/svg/TeamSVG";
+import ProgrammingImg from "../../assets/svg/ProgrammingSVG"
+import FirmwareImg from "../../assets/svg/FirmwareSVG"
 
 function Skill_SoftwareEngineer() {
     return (
-
         <div className="bg-primary-50 dark:bg-primary-900 text-secondary-900 dark:text-primary-200">
             <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-                <div class="hidden lg:mt-0 lg:col-span-6 lg:flex">
+                <div class="hidden lg:mt-0 lg:col-span-6 lg:flex justify-start">
                     <Fade left duration={2000}>
                         <DevImg />
                     </Fade>
                 </div>
-                <div class="mr-auto place-self-center lg:col-span-6">
+                <div class="mr-auto place-self-center lg:col-span-6 justify-end">
                     <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white flex items-end text-left">
                         <Fade right duration={1500}>
                             Software Engineer

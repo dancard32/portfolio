@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ProgrammingImg() {
+export default function ProgrammingSVG() {
     const theme = {
         name: "light",
         body: "#FFFFFF", // white

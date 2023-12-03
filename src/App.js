@@ -11,6 +11,7 @@ import Education from "./pages/education/education";
 import Experience from "./pages/experience/experience";
 import ScrollToTop from "react-scroll-to-top";
 import Projects from "./pages/projects/projects";
+import Blog from "./pages/blog/blog";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/education" element={<Education />} />
               <Route path="/experience" element={<Experience />} />
               <Route path="/projects" element={<Projects />} />
+              <Route path="/blog" element={<Blog />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<PageNotFound/>}/>
             </Routes>
