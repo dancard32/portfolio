@@ -1,12 +1,16 @@
 import React from "react";
 import Home from "./pages/home/home";
-import About from "./pages/about/about";
+import Contact from "./pages/contact/contact";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import NavBar from './components/navbar';
 import { Flowbite } from 'flowbite-react';
 import PageNotFound from "./pages/PageNotFound";
 import Footer from "./components/footer";
+import Education from "./pages/education/education";
+import Experience from "./pages/experience/experience";
+import ScrollToTop from "react-scroll-to-top";
+import Projects from "./pages/projects/projects";
 
 function App() {
   return (
@@ -16,7 +20,10 @@ function App() {
             <NavBar />
             <Routes>
               <Route path="/home" element={<Home />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<PageNotFound/>}/>
             </Routes>
             <Footer/>

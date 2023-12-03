@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Document, Page, pdfjs } from "react-pdf";
 
-function About() {
+function Contact() {
+  const [width, setWidth] = useState(1200);
+
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  }, []);
+
   return (
     <section>
       <h1 className="text-3xl font-bold underline dark:text-secondary-500">
@@ -9,8 +16,9 @@ function About() {
       <p className='text-blue-500 text-3xl font-bold underline'>
         testing
       </p>
+
     </section>
   );
 }
 
-export default About;
+export default Contact;
