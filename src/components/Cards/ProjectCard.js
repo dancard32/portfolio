@@ -1,15 +1,32 @@
 import { Card } from 'flowbite-react';
+import { Fade } from 'react-reveal';
+import { Icon } from "../../assets/icons/Icon"
 
-function ProjectCard() {
+function ProjectCard({repo, theme}) {
+  function openRepoinNewTab(url) {
+    var win = window.open(url, "_blank");
+    win.focus();
+  }
+
   return (
-    <Card href="https://github.com/dancard32/homelab" className="bg-primary-900 max-w-sm outline p-5 col-span-1">
-      <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-      homelab
-      </h5>
-      <p className="font-normal text-gray-700 dark:text-gray-400">
-      This public repository contains all the services that I am running on my personal server.
-      </p>
-    </Card>
+    <Fade bottom duration={2000} distance="40px">
+      <Card className="bg-primary-900 max-w-sm outline m-5 p-5">
+        <div class="grid col-span-1 text-start">
+          <h5 className="text-2xl font-bold tracking-tight items-start text-gray-900 dark:text-white">
+            {repo.name}
+          </h5>
+          <p className="font-normal text-start text-gray-700 dark:text-gray-400">
+            {repo.description}
+          </p>
+          <div class="inline-flex">
+            {repo.languages?.map((icon) => {
+              return <Icon nameIcon={icon} propsIcon={{ size: 20 }} />
+                  })}
+
+          </div>
+        </div>
+      </Card>
+    </Fade>
   );
 }
 

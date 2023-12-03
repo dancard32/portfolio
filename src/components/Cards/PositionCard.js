@@ -2,7 +2,7 @@ import { Card } from 'flowbite-react';
 
 function PositionCard() {
   return (
-    <Card class="bg-primary-900" horizontal>
+    <Card class="bg-primary-900 outline rounded m-10" horizontal>
         <div class="grid grid-rows-3 grid-cols-4 grid-flow-col gap-4">
             <div class="row-auto p-10 col-span-1">
                 <img
