@@ -4,7 +4,7 @@ import WhatIDo from "./WhatIDo";
 
 function Home() {
   return (
-    <section class="bg-primary-900">
+    <section>
         <Splash/>
         <WhatIDo/>
     </section>

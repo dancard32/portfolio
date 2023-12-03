@@ -15,3 +15,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+section {
+  @apply bg-primary-50 dark:bg-primary-900
+}

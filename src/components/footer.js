@@ -29,7 +29,11 @@ function Component() {
         <p>
           Made with ❤️ by Dan
         </p>
-        <ScrollToTop smooth class="content-center"/>
+        <ScrollToTop smooth class="content-center">
+        </ScrollToTop>
+        <p>
+          Scroll to the top
+        </p>
         <Footer.Copyright href="CopyRight" by=" Dan Card™" year={2022} />
       </div>
     </Footer>

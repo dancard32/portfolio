@@ -28,7 +28,7 @@ function Blogs() {
               My Blog
             </a>
           </div>
-          <div class="mr-auto place-self-center lg:col-span-7">
+          <div class="hidden lg:mt-0 lg:col-span-7 lg:flex">
             <BlogsSVG />
           </div>
         </div>
