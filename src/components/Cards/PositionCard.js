@@ -1,43 +1,41 @@
 import { Card } from 'flowbite-react';
 
-function PositionCard() {
+function PositionCard({position, theme}) {
+
   return (
-    <Card class="bg-primary-900 outline rounded m-10" horizontal>
-        <div class="grid grid-rows-3 grid-cols-4 grid-flow-col gap-4">
-            <div class="row-auto p-10 col-span-1">
-                <img
-                    src={"https://northropgrumman.com/images/NGC-logo-white-on-clear.webp"}
-                    alt=""
-                />
-            </div>
-            <div class="col-span-3 row-span-1">
-                <h3>
-                    Frontend Software Engineer
-                </h3>
+    <Card class="bg-primary-50 dark:bg-primary-900 outline rounded m-10" horizontal>
+        <div class="grid grid-cols-4 grid-flow-col gap-4">
+            <img
+                src={position?.logo_url}
+                alt=""
+                class="row-auto p-10 col-span-1 m-2 outline rounded-md bg-primary-300"
+            />
+            <div class="shadow row-auto p-10 col-span-3">
+                <div class="flex flex-row justify-between">
+                    <h1 class="font-extrabold tracking-tight leading-none md:text-3xl xl:text-4xl dark:text-white text-left">
+                        {position.title}
+                    </h1>
+                    <h2 class="text-2xl text-secondary-900 dark:text-primary-200 text-right">
+                        {position.duration}
+                    </h2>
+                </div>
+                <div class="flex flex-row justify-between">
+                    <a
+                        href={position?.company_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-4xl text-secondary-900 dark:text-primary-200 text-left"
+                    >
+                        {position.company}
+                    </a>
 
-                <h2>
-                    June 2022 - December 2022
-                </h2>
-
-            </div>
-            <div class="col-span-3 row-span-1">
-                <a
-                    href="https://www.northropgrumman.com/space"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Northrop Grumman
-                </a>
-
-                <h2>
-                Remote 100%
-                </h2>
-
-            </div>
-            <div class="col-span-3 row-span-1">
-                <p>
-                    Aided in the development of a React web application for the Physical Security of the U.S. Air Force's modernized ICBM - Sentinel program - to monitor missile sites to mitigate both domestic and foreign threats. Furthermore I aided in transitioning from a cesium mapviewer to leaflet mapviewer and converting cesium map entities with TypeScript to improve performance by 5-10x while maintaining original functionality. Lastly I took initiative and lead troubleshooting for a workaround during an unexpected SDE migration reducing team downtime by approximately 2-4 weeks
-                </p>
+                    <h2 class="text-2xl text-secondary-900 dark:text-primary-200">
+                        {position.location}
+                    </h2>
+                </div>
+                <h2 class="text-1xl text-secondary-900 dark:text-primary-200 text-left">
+                        {position.description}
+                    </h2>
             </div>
         </div>
     </Card>

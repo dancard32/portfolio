@@ -2,12 +2,7 @@ import { Card } from 'flowbite-react';
 import { Fade } from 'react-reveal';
 import { Icon } from "../../assets/icons/Icon"
 
-function ProjectCard({repo, theme}) {
-  function openRepoinNewTab(url) {
-    var win = window.open(url, "_blank");
-    win.focus();
-  }
-
+function ProjectCard({repo}) {
   return (
     <Fade bottom duration={2000} distance="40px">
       <Card className="bg-primary-50 dark:bg-primary-900 max-w-sm outline m-5 p-5">
