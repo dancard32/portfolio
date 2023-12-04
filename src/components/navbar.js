@@ -1,6 +1,6 @@
 import { Navbar } from 'flowbite-react';
 import logo from '../assets/images/logo.png';
-import { DarkThemeToggle, Flowbite, Button, Avatar} from 'flowbite-react';
+import { DarkThemeToggle, Flowbite, Button } from 'flowbite-react';
 
 function NavBar() {
   return (

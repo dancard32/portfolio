@@ -1,6 +1,7 @@
 import React from "react";
 import FeelingProudSVG from "../../assets/svg/FeelingProudSVG";
 import Typewriter from "typewriter-effect";
+import SocialMediaLinks from "../../components/SocialMediaLinks";
 
 function Splash() {
     return (
@@ -35,10 +36,17 @@ function Splash() {
                         }}
                         />
                         </span>
-                        <a href="#" className="inline-flex justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
-                        Contact Me
-                        </a>
                     </p>
+
+                    <div class="flex items-end">
+                        <SocialMediaLinks/>
+                    </div>
+
+                    <div class="flex items-end py-2">
+                        <a href="/contact" className="flex-shrink justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                            Contact Me
+                        </a>
+                    </div>
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-7 lg:flex">
                     <FeelingProudSVG />
