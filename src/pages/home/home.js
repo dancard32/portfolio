@@ -1,14 +1,12 @@
 import React from "react";
+import Splash from "./Splash";
+import WhatIDo from "./WhatIDo";
 
 function Home() {
   return (
     <section>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-      <p className='text-blue-500 text-3xl font-bold underline'>
-        testing
-      </p>
+        <Splash/>
+        <WhatIDo/>
     </section>
   );
 }
