@@ -9,7 +9,6 @@ import PageNotFound from "./pages/PageNotFound";
 import Footer from "./components/footer";
 import Education from "./pages/education/education";
 import Experience from "./pages/experience/experience";
-import ScrollToTop from "react-scroll-to-top";
 import Projects from "./pages/projects/projects";
 import Blog from "./pages/blog/blog";
 
