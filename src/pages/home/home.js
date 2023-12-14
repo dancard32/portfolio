@@ -1,12 +1,12 @@
 import React from "react";
-import Splash from "./Splash";
+import Splash from "./splash";
 import WhatIDo from "./WhatIDo";
 
 function Home() {
   return (
     <section>
-        <Splash/>
-        <WhatIDo/>
+      <Splash />
+      <WhatIDo />
     </section>
   );
 }

@@ -5,7 +5,6 @@ import ContactSVG from "../../assets/svg/ContactSVG";
 import { Fade } from "react-reveal";
 import Resume from "./Resume";
 
-
 function Contact() {
   const [width, setWidth] = useState(1200);
 
@@ -15,8 +14,8 @@ function Contact() {
 
   return (
     <section>
-      <Resume/>
-      <Blogs/>
+      <Resume />
+      <Blogs />
     </section>
   );
 }

@@ -4,9 +4,9 @@ import ProjectList from "./ProjectList";
 
 function Projects() {
   return (
-    <section class="bg-primary-900">
-      <Splash/>
-      <ProjectList/>
+    <section class="bg-primary-50 dark:bg-primary-900 text-secondary-900 dark:text-primary-200">
+      <Splash />
+      <ProjectList />
     </section>
   );
 }

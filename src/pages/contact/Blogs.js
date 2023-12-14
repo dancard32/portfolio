@@ -1,6 +1,5 @@
 import React from "react";
 import BlogsSVG from "../../assets/svg/BlogsSVG";
-import ResumeLink from "./ResumeLink";
 
 function Blogs() {
   return (

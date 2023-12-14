@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ResumeLink({ repo, theme }) {
-
   return (
     <div>
       <a
