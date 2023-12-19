@@ -12,7 +12,7 @@ import {
 
   export default function DegreeEntry({ degree, theme }) {
     return (
-      <TimelineContent class="mx-5 pb-32">
+      <TimelineContent class="mx-5 pb-32 motion-safe:hover:scale-105">
         <TimelinePoint class="place-self-center" />
         <div class="grid grid-cols-2 grid-flow-row">
           <div class="row-span-full flex-none">
