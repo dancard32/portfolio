@@ -3,7 +3,7 @@ import { Icon } from "../../assets/icons/Icon";
 
 function WorkingSkillCard({ skill, theme }) {
   return (
-    <Card className={`${theme} max-w-sm outline m-5 p-5 motion-safe:hover:scale-110`} href={`${skill.url}`}>
+    <Card className={`${theme} dark:${theme} max-w-sm outline m-5 p-5 motion-safe:hover:scale-110`} href={`${skill.url}`}>
       <div class="grid col-span-1 text-start">
         <div class="flex-wrap inline-flex gap-2 py-2">
           <Icon nameIcon={skill.icon} propsIcon={{ size: 20 }} />
