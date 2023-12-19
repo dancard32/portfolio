@@ -14,7 +14,7 @@ function NavBar() {
                         </span>
                     </Navbar.Brand>
                     <Button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br hover:from-purple-600 hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-                        <Navbar.Link href="/home" active className="text-secondary-900 dark:text-primary-200 text-2xl">
+                        <Navbar.Link href="/" active className="text-secondary-900 dark:text-primary-200 text-2xl">
                             Home
                         </Navbar.Link>
                     </Button>
