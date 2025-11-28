@@ -1,22 +1,20 @@
 import { create } from 'zustand'
 
-
 function isMobile() {
-  const userAgent = navigator.userAgent.toLowerCase();
-  const mobileRegex = /android|iphone|ipod|ipad/i;
+  const userAgent = navigator.userAgent.toLowerCase()
+  const mobileRegex = /android|iphone|ipod|ipad/i
 
   if (mobileRegex.test(userAgent)) {
-    return true;
+    return true
   } else {
-    return false;
+    return false
   }
 }
 
-
 interface StyleStore {
-  isDark: boolean;
-  isMobile: boolean;
-  toggleDarkMode: () => void;
+  isDark: boolean
+  isMobile: boolean
+  toggleDarkMode: () => void
 }
 
 const useStylingStore = create<StyleStore>((set) => ({
