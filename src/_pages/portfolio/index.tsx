@@ -1,4 +1,4 @@
-import { Card, H1, H3, Text, Icon, Button, Intent, H2, CompoundTag, Tag, Callout, UL, H4 } from '@blueprintjs/core'
+import { Card, H1, H3, Button, H2, CompoundTag, Tag, Callout, UL, H4 } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { useNavigate } from 'react-router'
 import ReactTypingEffect from 'react-typing-effect'
@@ -69,7 +69,7 @@ export default function HomePage() {
             </UL>
           </Callout>
         </div>
-        <IconifyIcon icon="vscode-icons:file-type-python" />
+        <IconifyIcon icon='vscode-icons:file-type-python' />
         <ReactTypingEffect
           text={['Hello.', 'World!']}
           displayTextRenderer={(text) => {
