@@ -5,7 +5,7 @@ import Pages from 'vite-plugin-pages' // https://www.npmjs.com/package/vite-plug
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './', // Needed for building production
+  base: 'portfolio', // Needed for building production
   plugins: [
     react(),
     tailwindcss(),
