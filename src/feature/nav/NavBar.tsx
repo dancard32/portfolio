@@ -45,7 +45,7 @@ export default function ResponsiveNavbar() {
   ]
 
   return (
-    <Navbar className='h-[7vh]!'>
+    <Navbar className={`h-[7vh]! sticky! ${isMobile ? 'bottom-0!' : 'top-0!'}`}>
       <NavbarGroup className='w-full! justify-center! pt-4 pb-2 md:pt-4'>
         {isMobile ? null : (
           <>
@@ -59,6 +59,7 @@ export default function ResponsiveNavbar() {
           return (
             <div key={item.id} className='flex flex-col pl-2 pr-2'>
               <Button
+                className='rounded-sm!'
                 id={item.id}
                 text={isMobile ? undefined : item.displayName}
                 icon={item.icon}

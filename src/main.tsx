@@ -25,9 +25,11 @@ export function App() {
 
   return (
     <Suspense fallback={<FallBackComponent />}>
-      <div className={`${isDark ? 'bp6-dark' : 'bp6'}`}>
+      <div className={`${isDark ? 'bp6-dark' : 'bp6'} `}>
         {!isMobile ? <ResponsiveNavbar /> : null}
-        <div className={`main-content w-full h-[93vh]! ${bgColor}`}>{useRoutes([...routes, { path: '*', element: <PageNotFound /> }])}</div>
+        <div className={`main-content w-full h-[93vh]! ${bgColor} overflow-y-auto!`}>
+          {useRoutes([...routes, { path: '*', element: <PageNotFound /> }])}
+        </div>
         {!isMobile ? null : <ResponsiveNavbar />}
       </div>
     </Suspense>
