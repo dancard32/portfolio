@@ -52,7 +52,7 @@ export default function ResponsiveNavbar() {
   ];
 
   return (
-    <Navbar className="h-10vh!">
+    <Navbar className="h-[7vh]!">
       <NavbarGroup className="!w-full !justify-center">
         {isMobile ? null : (
           <>
@@ -64,7 +64,7 @@ export default function ResponsiveNavbar() {
         )}
         {HeaderButtonGroup.map((item) => {
           return (
-            <div className="flex flex-col pt-4 pb-4 p-2 md:p-1">
+            <div key={item.id} className="flex flex-col pt-4 pb-4 p-2 md:p-1">
             <Button
               id={item.id}
               text={isMobile ? undefined : item.displayName}

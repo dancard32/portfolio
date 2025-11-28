@@ -16,7 +16,7 @@ export default function PageNotFound() {
 
         <Text>We are sorry, but the page you requested was not found.</Text>
 
-        <Button icon={IconNames.HOME} text='Navigate to homepage' onClick={() => navigate('/home')} intent={Intent.PRIMARY} />
+        <Button icon={IconNames.HOME} text='Navigate to homepage' onClick={() => navigate('portfolio/home')} intent={Intent.PRIMARY} />
       </Card>
     </Card>
   )
