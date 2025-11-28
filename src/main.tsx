@@ -19,7 +19,7 @@ import '@blueprintjs/select/lib/css/blueprint-select.css'
 import '@blueprintjs/table/lib/css/table.css'
 
 import routes from '~react-pages'
-import PageNotFound from './_pages/$'
+import PageNotFound from './_pages/PageNotFound'
 import ResponsiveNavbar from './feature/nav/NavBar'
 
 export function App() {
