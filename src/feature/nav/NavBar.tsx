@@ -74,7 +74,7 @@ export default function ResponsiveNavbar() {
               variant="minimal"
               onClick={() => {
                 setSelectedTabId(item.id);
-                navigate(item.id === "home" ? "/" : `/${item.id}`);
+                navigate(item.id === "home" ? "portfolio/" : `portfolio/${item.id}`);
               }}
             />
             {isMobile ? <span className="text-[8px] text-center">{item.displayName}</span> : null}
