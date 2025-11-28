@@ -53,7 +53,7 @@ export default function ResponsiveNavbar() {
 
   return (
     <Navbar className="h-[7vh]!">
-      <NavbarGroup className="!w-full !justify-center">
+      <NavbarGroup className="w-full! justify-center! pt-4 pb-2 md:pt-4">
         {isMobile ? null : (
           <>
             <NavbarHeading style={{ fontFamily: "impact" }}>
@@ -64,20 +64,26 @@ export default function ResponsiveNavbar() {
         )}
         {HeaderButtonGroup.map((item) => {
           return (
-            <div key={item.id} className="flex flex-col pt-4 pb-4 p-2 md:p-1">
-            <Button
-              id={item.id}
-              text={isMobile ? undefined : item.displayName}
-              icon={item.icon}
-              active={selectedTabId === item.id}
-              size="large"
-              variant="minimal"
-              onClick={() => {
-                setSelectedTabId(item.id);
-                navigate(item.id === "home" ? "portfolio/" : `portfolio/${item.id}`);
-              }}
-            />
-            {isMobile ? <span className="text-[8px] text-center">{item.displayName}</span> : null}
+            <div key={item.id} className="flex flex-col pl-2 pr-2">
+              <Button
+                id={item.id}
+                text={isMobile ? undefined : item.displayName}
+                icon={item.icon}
+                active={selectedTabId === item.id}
+                size="large"
+                variant="minimal"
+                onClick={() => {
+                  setSelectedTabId(item.id);
+                  navigate(
+                    item.id === "home" ? "portfolio/" : `portfolio/${item.id}`
+                  );
+                }}
+              />
+              {isMobile ? (
+                <span className="text-[8px] text-center">
+                  {item.displayName}
+                </span>
+              ) : null}
             </div>
           );
         })}

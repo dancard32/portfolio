@@ -6,8 +6,8 @@ export default function PageNotFound() {
   const navigate = useNavigate()
 
   return (
-    <Card className='page-not-found flex justify-center !h-full w-full'>
-      <Card className='h-1/2 w-1/2 flex flex-col justify-center items-center !m-4 !p4'>
+    <Card className='page-not-found flex justify-center h-full! w-full'>
+      <Card className='h-1/2 w-1/2 flex flex-col justify-center items-center m-4! !p4'>
         <H1 className='text-center' style={{ fontFamily: 'impact' }}>
           <strong>Oops!</strong>
         </H1>
