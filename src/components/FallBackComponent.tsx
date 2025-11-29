@@ -1,13 +1,8 @@
 import { Card, H1, Spinner, Text } from '@blueprintjs/core'
-import { useShallow } from 'zustand/shallow'
-import useStylingStore from '../redux/store'
+import { useTheme } from '../hooks/Context'
 
 export default function FallBackComponent() {
-  const { isDark } = useStylingStore(
-    useShallow((state) => ({
-      isDark: state.isDark,
-    }))
-  )
+  const { isDark } = useTheme();
 
   return (
     <div className={isDark ? 'bp6-dark' : 'bp6'} style={{ width: '100vw', height: '100vh' }}>

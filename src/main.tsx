@@ -1,8 +1,6 @@
 import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, useRoutes } from 'react-router-dom'
-import useStylingStore from './redux/store'
-import { useShallow } from 'zustand/react/shallow'
 
 import 'normalize.css'
 import '@blueprintjs/core/lib/css/blueprint.css'
@@ -16,9 +14,11 @@ import routes from '~react-pages'
 import PageNotFound from './_pages/PageNotFound'
 import ResponsiveNavbar from './feature/nav/NavBar'
 import FallBackComponent from './components/FallBackComponent'
+import { ThemeProvider, useTheme } from './hooks/Context'
 
 export function App() {
-  const { isDark, isMobile } = useStylingStore(useShallow((state) => ({ isDark: state.isDark, isMobile: state.isMobile })))
+  const { isDark, isMobile } = useTheme();
+  console.log(isMobile)
 
   // Colors.DARK_GRAY3 and Colors.LIGHT_GRAY3 are not caching
   const bgColor = isDark ? `bg-[#2F343C]` : `bg-[#E5E8EB]`
@@ -41,7 +41,9 @@ const app = createRoot(document.getElementById('root')!)
 app.render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </BrowserRouter>
   </StrictMode>
 )

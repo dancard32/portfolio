@@ -2,17 +2,10 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Navbar, NavbarGroup, NavbarHeading, NavbarDivider, Tooltip, Button } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
-import useStylingStore from '../../redux/store'
-import { useShallow } from 'zustand/react/shallow'
+import { useTheme } from '../../hooks/Context'
 
 export default function ResponsiveNavbar() {
-  const { isDark, toggleDarkMode, isMobile } = useStylingStore(
-    useShallow((state) => ({
-      isDark: state.isDark,
-      isMobile: state.isMobile,
-      toggleDarkMode: state.toggleDarkMode,
-    }))
-  )
+  const { isDark, toggleDarkMode, isMobile } = useTheme();
   const [selectedTabId, setSelectedTabId] = useState<string>('home')
   const navigate = useNavigate()
 
