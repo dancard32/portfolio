@@ -12,7 +12,8 @@
     "format:write": "npx prettier . --write",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "prepare": "husky"
   },
   "dependencies": {
     "@blueprintjs/core": "^6.3.1",
@@ -40,6 +41,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
+    "husky": "^9.1.7",
     "prettier": "^3.6.2",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.45.0",
