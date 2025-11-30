@@ -2,85 +2,146 @@ import { Card, H1, H3, Button, H2, CompoundTag, Tag, Callout, UL, Divider, Icon,
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import { useNavigate } from 'react-router'
 import { TooltipIconifyIcon } from '../../components/TooltipIconifyIcon'
+import ContactInfo from '../../components/ContactInfo'
+import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
+
+interface homeSections {
+  title: string
+  icon: BlueprintIcons_16Id
+  bulletPoints: string[]
+  iconifyIcons: Record<string, string | any>
+}
 
 export default function HomePage() {
   const navigate = useNavigate()
 
-  const technicalSkills: Record<string, string> = {
-    Homelab: 'icon-park:server',
-    Docker: 'logos:docker-icon',
-    Kubernetes: 'logos:kubernetes',
-    Ansible: 'skill-icons:ansible',
-    Helm: 'vscode-icons:file-type-helm',
-    Github: 'simple-icons:github',
-    Gitlab: 'logos-gitlab',
-    RaspberryPi: 'logos-raspberry-pi',
-    Ubuntu: 'logos:ubuntu',
-    'VS Code': 'vscode-icons:file-type-vscode',
-    '3D Printing': 'mdi:printer-3d-nozzle-alert',
-    MATLAB: 'vscode-icons:file-type-matlab',
-    Python: 'vscode-icons:file-type-python',
-    React: 'skill-icons:react-dark',
-  }
-
-  const technicalBackgroundSkills: Record<string, string> = {
-    'Aerospace Engineering': 'noto:rocket',
-    Propulsion: 'game-icons:rocket-thruster',
-    Python: 'vscode-icons:file-type-python',
-    Arduino: 'logos:arduino',
-    Matlab: 'vscode-icons:file-type-matlab',
-  }
-
-  const lookingToLearnSkills: Record<string, any> = {
-    AWS: {
-      iconifyIcon: 'simple-icons:amazonaws',
-      style: {
-        color: '#FF9900',
+  const home: homeSections[] = [
+    {
+      title: 'Software Engineer',
+      icon: IconNames.Desktop,
+      bulletPoints: [
+        '✈️ Currently employed as a software engineer at Palantir Technologies',
+        '🧑‍🎓 Enrolled at Georgia Tech Masters in Computer Science',
+        '💻 Developing and maintaining a homelab personal server',
+        '💪 Worked on multiple projects, including maintaining a legacy codebase, an extended CLIN effort, data analytics, and a re-platforming effort',
+        '🔧 Collaborated with cross-functional teams to develop and deploy scalable solutions',
+        '👇 Below are some of the software languages / frameworks / applications I have used throughout my career',
+      ],
+      iconifyIcons: {
+        CoffeeScript: 'devicon:coffeescript',
+        Marionette: 'logos:marionette',
+        Backbone: 'logos:backbone-icon',
+        HandleBars: 'devicon:handlebars',
+        Less: 'logos:less',
+        gRPC: 'logos:grpc',
+        Java: 'logos:java',
+        React: 'devicon:react',
+        TypeScript: 'devicon:typescript',
+        Cassandra: 'logos:cassandra',
+        Jenkins: 'logos:jenkins',
+        PagerDuty: 'logos:pagerduty-icon',
+        Docker: 'logos:docker-icon',
+        JUnit: 'devicon:junit-wordmark',
+        Grafana: 'logos:grafana',
+        'Circle CI': 'logos:circleci',
+        Spark: 'devicon:apachespark-wordmark',
+        'Slack Integrations': 'devicon:slack',
+        Linux: 'devicon:linux',
+        Redis: 'devicon:redis',
+        PostgreSQL: 'logos:postgresql',
+        AWS: 'devicon:amazonwebservices',
+        InteliJ: 'devicon:intellij',
+        Zustand: 'devicon:zustand',
+        Prometheus: 'devicon:prometheus',
+        'VS Code': 'devicon:vscode',
+        Github: 'logos-github-icon',
+        'Fast API': 'devicon:fastapi',
+        Go: 'logos:go',
+        'Github Actions': 'devicon:githubactions',
+        Kubernetes: 'logos:kubernetes',
+        Terraform: 'devicon:terraform',
+        GraphQL: 'logos:graphql',
+        'RedHat Linux': 'logos:redhat-icon',
+        K3s: 'devicon:k3s',
+        'C++': 'logos:c-plusplus',
+        Podman: 'devicon:podman',
+        CentOS: 'devicon:centos',
+        Gitlab: 'logos:gitlab-icon',
+        CMake: 'devicon:cmake',
+        Apache: 'devicon:apache',
+        Ansible: 'skill-icons:ansible',
+        GCC: 'devicon:gcc',
+        Ceph: 'devicon:ceph',
       },
     },
-    Alexa: {
-      iconifyIcon: 'simple-icons:amazonalexa',
-      style: {
-        color: '#00CAFF',
+    {
+      title: 'My Favorite Tech',
+      icon: IconNames.BUILD,
+      bulletPoints: [
+        '👨🏽‍💻 Striving to broaden my software engineering skills through personal projects and graduate coursework',
+        '🛠 Working to self-host apps and services on my homelab and develop my distributed systems skills',
+        '💻 Familiar with a variety of programming languages, including Java, Python, and C++',
+        '🔧 Experienced in using Docker, Kubernetes, and Ansible for containerization and automation',
+        '👇 Below are some of my favorite technology / software and frameworks',
+      ],
+      iconifyIcons: {
+        Java: 'logos:java',
+        React: 'devicon:react',
+        MATLAB: 'vscode-icons:file-type-matlab',
+        Homelab: 'icon-park:server',
+        Python: 'vscode-icons:file-type-python',
+        Spark: 'devicon:apachespark-wordmark',
+        Docker: 'logos:docker-icon',
+        Kubernetes: 'logos:kubernetes',
+        Ansible: 'skill-icons:ansible',
+        RaspberryPi: 'logos-raspberry-pi',
+        Ubuntu: 'logos:ubuntu',
+        '3D Printing': 'mdi:printer-3d-nozzle-alert',
       },
     },
-    JavaScript: {
-      iconifyIcon: 'simple-icons:javascript',
-      style: {
-        backgroundColor: '#FFFFFF',
-        color: '#F7DF1E',
+    {
+      title: 'Technical Background',
+      icon: IconNames.LIGHTNING,
+      bulletPoints: [
+        '🚀 Former lead tooling maintenance on a multi-billion dollar DoD contract',
+        '🛰 Designed and researched high-power ion thrusters',
+        '💻 Developed custom laboratory equipment',
+        '🖨 Avid 3D printer/tinkerer of personal projects',
+        '💡 Conducted experiments on plasma dynamics and electric propulsion systems',
+      ],
+      iconifyIcons: {
+        'Aerospace Engineering': 'noto:rocket',
+        Propulsion: 'game-icons:rocket-thruster',
+        Python: 'vscode-icons:file-type-python',
+        Arduino: 'logos:arduino',
+        Matlab: 'vscode-icons:file-type-matlab',
       },
     },
-    Java: {
-      iconifyIcon: 'simple-icons:java',
-      style: {
-        color: '#808080',
+    {
+      title: 'Always looking to learn!',
+      icon: IconNames.CLEAN,
+      bulletPoints: [
+        '📧 Feel free to reach out to me with any technical questions or recommendations!',
+        '🧑‍🎓 Expected Georgia Tech graduation in Fall 2026',
+        '💡 Planning to take online courses and attend webinars to expand my knowledge in AI, machine learning, and cybersecurity',
+        '📊 Aiming to develop a personal project utilizing blockchain technology and smart contracts',
+        '👨🏽‍💻 Always trying to improve! Below are languages/software/frameworks I plan to learn',
+      ],
+      iconifyIcons: {
+        Solidity: 'devicon:solidity',
+        Rust: 'devicon:rust',
+        Ruby: 'devicon:ruby',
+        Svelte: 'devicon:svelte',
+        Zig: 'devicon:zig',
+        Bun: 'devicon:bun',
       },
     },
-    PHP: {
-      iconifyIcon: 'simple-icons:php',
-      style: {
-        color: '#313875',
-      },
-    },
-    Go: {
-      iconifyIcon: 'simple-icons:go',
-      style: {
-        color: '#40a7e3',
-      },
-    },
-    Solidity: {
-      iconifyIcon: 'simple-icons:solidity',
-      style: {
-        color: '#4d4d4d',
-      },
-    },
-  }
+  ]
 
   return (
     <div className='home-page p-2 m-2 md:p-4 md:m-4'>
       <Card className='flex flex-col p-4! gap-y-2!'>
-        <div className='flex flex-col md:flex-row mx-aut!o p-2 m-4 gap-2 md:pl-32 md:pr-32 '>
+        <div className='flex flex-col md:flex-row mx-auto! p-2 m-4 gap-2 md:pl-32 md:pr-32 '>
           <img className='object-contain w-64 rounded-full!' src='SQ_PFP.jpg' alt='Profile Picture' />
           <div className='flex flex-col gap-1'>
             <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
@@ -98,7 +159,7 @@ export default function HomePage() {
                 </Tag>
               </H3>
             </div>
-            Focused on delivering high-impact solutions using the latest technologies and best practices
+            Driven engineer focused on delivering high-impact solutions using the latest technologies and best practices
             <div>
               <CompoundTag intent='primary' endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent='Arlington'>
                 <span>Virginia</span>
@@ -108,6 +169,7 @@ export default function HomePage() {
               <Tag>Distributed Systems</Tag>
               <Tag>High Availability</Tag>
               <Tag>Builder</Tag>
+              <Tag>Rapid Development</Tag>
             </div>
             <div className='flex flex-row gap-2'>
               <Button
@@ -115,119 +177,35 @@ export default function HomePage() {
                 className='rounded-md!'
                 text='Contact Me'
                 intent={Intent.PRIMARY}
-                onClick={() => navigate('portfolio/contact')}
+                onClick={() => navigate('./contact')}
               />
               <Button
-                icon={IconNames.PHONE_CALL}
                 className='rounded-md!'
-                text='View Resume'
                 intent={Intent.PRIMARY}
-                onClick={() => navigate('portfolio/contact')}
+                icon={IconNames.PHONE_CALL}
+                text='View Resume'
+                onClick={() => window.open('./pdfs/main.pdf', '_blank')}
               />
             </div>
-            <ButtonGroup>
-              <Button
-                icon={
-                  <TooltipIconifyIcon
-                    skillsDictionary={{ 'My Github': { iconifyIcon: 'simple-icons:github', style: { fontSize: '24px' } } }}
-                  />
-                }
-                onClick={() => window.open('https://github.com/dancard32', '_blank')}
-                variant='minimal'
-              />
-              <Button
-                icon={
-                  <TooltipIconifyIcon
-                    skillsDictionary={{ LinkedIn: { iconifyIcon: 'logos:linkedin-icon', style: { fontSize: '24px' } } }}
-                  />
-                }
-                onClick={() => window.open('https://www.linkedin.com/in/dan-card/', '_blank')}
-                variant='minimal'
-              />
-              <Button
-                icon={
-                  <TooltipIconifyIcon skillsDictionary={{ Email: { iconifyIcon: 'logos:google-gmail', style: { fontSize: '24px' } } }} />
-                }
-                onClick={() => window.open('mailto:dcard@umich.edu', '_blank')}
-                variant='minimal'
-              />
-            </ButtonGroup>
+            <ContactInfo />
           </div>
         </div>
         <H2 className='text-center'>Here's what I do</H2>
         <Divider />
         <div className='flex flex-col gap-4 p-1 m-1 md:p-2 md:m-2'>
-          <Callout icon={<Icon icon={IconNames.DESKTOP} size={IconSize.LARGE} />}>
-            <H3>Software Engineer</H3>
-            <UL>
-              <li>
-                <span className='text-lg!'>✈️ Currently employed as a software engineer at Boeing</span>
-              </li>
-              <li>
-                <span className='text-lg!'>🧑‍🎓 Enrolled at Georgia Tech Masters in Computer Science</span>
-              </li>
-              <li>
-                <span className='text-lg!'>👨‍🏫 Graduate Teaching Assistant in Academic Integrity</span>
-              </li>
-              <li>
-                <span className='text-lg!'>💻 Developing and maintaining a homelab personal server</span>
-              </li>
-              <li>
-                <span className='text-lg!'>📈 In process of developing a high-frequency trading agent</span>
-              </li>
-            </UL>
-          </Callout>
-          <Callout icon={<Icon icon={IconNames.BUILD} size={IconSize.LARGE} />}>
-            <H3>My Favorite Tech</H3>
-            <UL>
-              <li>
-                <span className='text-lg!'>👨🏽‍💻 Striving to master Docker and Kubernetes</span>
-              </li>
-              <li>
-                <span className='text-lg!'>🛠 Working to self-host apps/services on my homelab</span>
-              </li>
-              <li>
-                <span className='text-lg!'>🎮 End of year goal to develop a small indie game with LibDX</span>
-              </li>
-              <li>
-                <span className='text-lg!'>🛸 Implement an AI service for personal project</span>
-              </li>
-            </UL>
-            <TooltipIconifyIcon skillsDictionary={technicalSkills} />
-          </Callout>
-          <Callout icon={<Icon icon={IconNames.LIGHTNING} size={IconSize.LARGE} />}>
-            <H3>Technical Background</H3>
-            <UL>
-              <li>
-                <span className='text-lg!'>🚀 Former lead tooling maintenance on a multi-billion dollar DoD contract</span>
-              </li>
-              <li>
-                <span className='text-lg!'>🛰 Designed and researched high-power ion thrusters</span>
-              </li>
-              <li>
-                <span className='text-lg!'>💻 Developed custom laboratory equipment</span>
-              </li>
-              <li>
-                <span className='text-lg!'>🖨 Avid 3D printer/tinkerer of personal projects</span>
-              </li>
-            </UL>
-            <TooltipIconifyIcon skillsDictionary={technicalBackgroundSkills} />
-          </Callout>
-          <Callout icon={<Icon icon={IconNames.CLEAN} size={IconSize.LARGE} />}>
-            <H3>Always looking to learn!</H3>
-            <UL>
-              <li>
-                <span className='text-lg!'>👨🏽‍💻 Always trying to improve! Above are languages/software I plan to learn</span>
-              </li>
-              <li>
-                <span className='text-lg!'>🧑‍🎓 Expected Georgia Tech graduation in Fall 2025</span>
-              </li>
-              <li>
-                <span className='text-lg!'>📧 Feel free to reach out to me with any technical questions or recommendations!</span>
-              </li>
-            </UL>
-            <TooltipIconifyIcon skillsDictionary={lookingToLearnSkills} />
-          </Callout>
+          {home.map((homeSection) => (
+            <Callout icon={<Icon icon={homeSection.icon} size={IconSize.LARGE} />} className={`rounded-md! shadow-lg!`}>
+              <H3>{homeSection.title}</H3>
+              <UL>
+                {homeSection.bulletPoints.map((bulletedPoint) => (
+                  <li>
+                    <span className='text-lg!'>{bulletedPoint}</span>
+                  </li>
+                ))}
+              </UL>
+              <TooltipIconifyIcon skillsDictionary={homeSection.iconifyIcons} />
+            </Callout>
+          ))}
         </div>
       </Card>
     </div>

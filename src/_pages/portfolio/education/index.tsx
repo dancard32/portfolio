@@ -1,6 +1,7 @@
-import { Card, H1, H3, H6, Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button } from '@blueprintjs/core'
+import { Card, H1, H3, H6, Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button, Tooltip } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { useTheme } from '../../../hooks/Context'
+import { Fragment } from 'react/jsx-runtime'
 
 interface educationSectionSkill {
   degree: string
@@ -53,7 +54,7 @@ export default function EducationPage() {
       degree: 'Masters of Science in Engineering',
       degreeConcentration: 'Aerospace Engineering - Computational Methods',
       degreeUrl: 'https://aero.engin.umich.edu/',
-      diplomaUrl: '',
+      diplomaUrl: 'pdfs/Diploma_MSE.pdf',
       college: 'University of Michigan',
       collegeLogo: 'images/UM_Logo.webp',
       collegeUrl: 'https://umich.edu/',
@@ -76,7 +77,7 @@ export default function EducationPage() {
       degree: 'Bachelors of Science in Engineering',
       degreeConcentration: 'Aerospace Engineering',
       degreeUrl: 'https://aero.engin.umich.edu/',
-      diplomaUrl: '',
+      diplomaUrl: 'pdfs/Diploma_BSE.pdf',
       college: 'University of Michigan',
       collegeLogo: 'images/UM_Logo.webp',
       collegeUrl: 'https://umich.edu/',
@@ -185,7 +186,7 @@ export default function EducationPage() {
     },
     {
       sectionTitle: 'Engineering Skills',
-      colorCode: '#5c5a5a',
+      colorCode: '#a34ca6',
       skills: [
         {
           title: 'Oscilloscope',
@@ -234,28 +235,28 @@ export default function EducationPage() {
         {
           title: 'Applied Machine Learning in Python',
           logo: 'images/pds_machineLearning.webp',
-          calloutUrl: 'Applied Machine Learning in Python.pdf',
+          calloutUrl: 'cs_certifications/Applied Machine Learning in Python.pdf',
         },
         {
           title: 'Introduction to Data Science in Python',
 
           logo: 'images/pds_dataScience.webp',
-          calloutUrl: 'Introduction to Data Science in Python.pdf',
+          calloutUrl: 'cs_certifications/Introduction to Data Science in Python.pdf',
         },
         {
           title: 'Applied Text Mining in Python',
           logo: 'images/pds_textMining.webp',
-          calloutUrl: 'Applied Text Mining in Python.pdf',
+          calloutUrl: 'cs_certifications/Applied Text Mining in Python.pdf',
         },
         {
           title: 'Applied Social Network Analysis in Python',
           logo: 'images/pds_networkAnalysis.webp',
-          calloutUrl: 'Applied Social Network Analysis in Python.pdf',
+          calloutUrl: 'cs_certifications/Applied Social Network Analysis in Python.pdf',
         },
         {
           title: 'Applied Plotting, Charting & Data Representation in Python',
           logo: 'images/pds_dataRep.webp',
-          calloutUrl: 'Applied Plotting, Charting & Data Representation in Python.pdf',
+          calloutUrl: 'cs_certifications/Applied Plotting, Charting & Data Representation in Python.pdf',
         },
       ],
     },
@@ -266,23 +267,23 @@ export default function EducationPage() {
         {
           title: 'Python Data Structures',
           logo: 'images/p4e_dataStructures.webp',
-          calloutUrl: 'Python Data Structures.pdf',
+          calloutUrl: 'cs_certifications/Python Data Structures.pdf',
         },
 
         {
           title: 'Programming for Everybody (Getting Started with Python)',
           logo: 'images/p4e_gettingStarted.webp',
-          calloutUrl: 'Programming for Everybody (Getting Started with Python).pdf',
+          calloutUrl: 'cs_certifications/Programming for Everybody (Getting Started with Python).pdf',
         },
         {
           title: 'Using Databases with Python',
           logo: 'images/p4e_databases.webp',
-          calloutUrl: 'Using Databases with Python.pdf',
+          calloutUrl: 'cs_certifications/Using Databases with Python.pdf',
         },
         {
           title: 'Using Python to Access Web Data',
           logo: 'images/p4e_webData.webp',
-          calloutUrl: 'Using Python to Access Web Data.pdf',
+          calloutUrl: 'cs_certifications/Using Python to Access Web Data.pdf',
         },
       ],
     },
@@ -293,12 +294,12 @@ export default function EducationPage() {
         {
           title: 'Web Application Technologies and Django',
           logo: 'images/django_webTech.webp',
-          calloutUrl: 'Web Application Technologies and Django.pdf',
+          calloutUrl: 'cs_certifications/Web Application Technologies and Django.pdf',
         },
         {
           title: 'Building Web Applications in Django',
           logo: 'images/django_webApps.webp',
-          calloutUrl: 'Building Web Applications in Django.pdf',
+          calloutUrl: 'cs_certifications/Building Web Applications in Django.pdf',
         },
       ],
     },
@@ -307,7 +308,7 @@ export default function EducationPage() {
   return (
     <div className='experience-page p-2 m-2 md:p-4 md:m-4'>
       <Card className='flex flex-col p-4! gap-y-2!'>
-        <div className='flex flex-col gap-1 items-center'>
+        <div className='flex flex-col gap-1 items-center w-1/2 mx-auto text-center'>
           <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
             Education
           </H1>
@@ -320,7 +321,7 @@ export default function EducationPage() {
         </div>
         <Divider />
         <div className='flex flex-col gap-2 p-2'>
-          {experiences.map((section) => {
+          {experiences.map((section, sectionId) => {
             const TagElement =
               section.collegeUrl !== null ? (
                 <Tag onClick={() => window.open(section.collegeUrl, '_blank')} icon={IconNames.OFFICE}>
@@ -350,19 +351,30 @@ export default function EducationPage() {
 
             return (
               <Section
+                key={`section-${sectionId}`}
                 className='rounded-md! shadow-lg!'
                 title={
                   <>
-                    <H4 className='my-auto!'>
-                      {section.degree}{' '}
+                    <div className='flex flex-row'>
+                      <H4 className='my-auto!'>{section.degree} </H4>
                       <Button
                         icon={IconNames.SHARE}
                         variant='minimal'
                         aria-label='share'
                         onClick={() => window.open(section.degreeUrl, '_blank')}
                       />
-                    </H4>
-                    <H6>{section.degreeConcentration}</H6>
+                    </div>
+                    <div className='flex flex-row'>
+                      <H6 className='my-auto!'>{section.degreeConcentration}</H6>
+                      {section.diplomaUrl ? (
+                        <Button
+                          icon={IconNames.SHARE}
+                          variant='minimal'
+                          aria-label='share'
+                          onClick={() => window.open(section.diplomaUrl, '_blank')}
+                        />
+                      ) : null}
+                    </div>
                   </>
                 }
                 icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.collegeLogo} />}
@@ -380,13 +392,13 @@ export default function EducationPage() {
                   <div className='flex flex-row flex-wrap gap-1'>
                     <span className='font-bold'>Coursework:</span>{' '}
                     {section.classes.map((courseName) => (
-                      <Tag>{courseName}</Tag>
+                      <Tag key={courseName}>{courseName}</Tag>
                     ))}
                   </div>
                   <div className='flex flex-row flex-wrap gap-1'>
                     <span className='font-bold'>Accolades:</span>
                     {section.accolades.map((accoladeName) => (
-                      <Tag>{accoladeName}</Tag>
+                      <Tag key={accoladeName}>{accoladeName}</Tag>
                     ))}
                   </div>
                 </SectionCard>
@@ -402,10 +414,17 @@ export default function EducationPage() {
         </div>
         <Divider />
         <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
-          {skillSections.map((parentSkill) => (
-            <>
-              {parentSkill.skills.map((skill) => (
-                <Card className='rounded-md! shadow-lg! pl-0! pr-0! pb-0!' style={{ backgroundColor: parentSkill.colorCode }}>
+          {skillSections.map((parentSkill, parentSkillId) => (
+            <Fragment key={`${parentSkill}-${parentSkillId}`}>
+              {parentSkill.skills.map((skill, skillId) => (
+                <Card
+                  key={`skill-${skillId}`}
+                  className='rounded-md! shadow-lg! pl-0! pr-0! pb-0!'
+                  style={{ backgroundColor: parentSkill.colorCode }}
+                >
+                  <Tooltip content={'See more'}>
+                    <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
+                  </Tooltip>
                   <div className='flex flex-col items-center'>
                     <img className='w-16! h-16! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
                     <Card className='rounded-md! shadow-lg! w-full!'>
@@ -417,7 +436,7 @@ export default function EducationPage() {
                   </div>
                 </Card>
               ))}
-            </>
+            </Fragment>
           ))}
         </div>
 
@@ -427,11 +446,18 @@ export default function EducationPage() {
           </H1>
         </div>
         <Divider />
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
-          {certificationSections.map((parentSkill) => (
-            <>
-              {parentSkill.skills.map((skill) => (
-                <Card className='rounded-md! shadow-lg! pl-0! pr-0! pb-0!' style={{ backgroundColor: parentSkill.colorCode }}>
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-2 m-4'>
+          {certificationSections.map((parentSkill, parentSkillId) => (
+            <Fragment key={`${parentSkill}-${parentSkillId}`}>
+              {parentSkill.skills.map((skill, skillId) => (
+                <Card
+                  key={`${skill}-${skillId}`}
+                  className='rounded-md! shadow-lg! pl-0! pr-0! pb-0!'
+                  style={{ backgroundColor: parentSkill.colorCode }}
+                >
+                  <Tooltip content={'See more'}>
+                    <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
+                  </Tooltip>
                   <div className='flex flex-col items-center'>
                     <img className='w-32! h-32! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
                     <Card className='rounded-md! shadow-lg! w-full! bottom-0!'>
@@ -443,7 +469,7 @@ export default function EducationPage() {
                   </div>
                 </Card>
               ))}
-            </>
+            </Fragment>
           ))}
         </div>
       </Card>

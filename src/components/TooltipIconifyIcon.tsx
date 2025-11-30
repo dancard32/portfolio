@@ -1,6 +1,7 @@
-import { Tooltip } from "@blueprintjs/core"
-import { useTheme } from "../hooks/Context"
-import IconifyIcon from "./IconifyIcon"
+import { Spinner, Tooltip } from '@blueprintjs/core'
+import { useTheme } from '../hooks/Context'
+import IconifyIcon from './IconifyIcon'
+import { Suspense } from 'react'
 
 interface DictionaryToolTipProps {
   iconifyIcon: string
@@ -13,16 +14,20 @@ interface TooltipIconifyIconProps {
 export function TooltipIconifyIcon({ skillsDictionary }: TooltipIconifyIconProps) {
   const { isMobile } = useTheme()
 
-  const fontSizeStyling = `${isMobile ? '24px' : '48px'}`
+  const fontSizeStyling = `${isMobile ? '24px' : '32px'}`
 
   return (
-    <div className='justify-center flex flex-row flex-wrap gap-2'>
-      {Object.keys(skillsDictionary).map((key) => (
-        <Tooltip content={key} placement='bottom'>
+    <div className='justify-center flex flex-row flex-wrap gap-2 w-1/2 mx-auto!'>
+      {Object.keys(skillsDictionary).map((key, idx) => (
+        <Tooltip key={key} content={key} placement='bottom'>
           {typeof skillsDictionary[key] === 'string' ? (
-            <IconifyIcon icon={skillsDictionary[key]} style={{ fontSize: fontSizeStyling }} />
+            <Suspense fallback={<Spinner />}>
+              <IconifyIcon fallback={<Spinner/>} icon={skillsDictionary[key]} style={{ fontSize: fontSizeStyling }} />
+            </Suspense>
           ) : (
-            <IconifyIcon icon={skillsDictionary[key].iconifyIcon} style={{ fontSize: fontSizeStyling, ...skillsDictionary[key].style }} />
+            <Suspense fallback={<Spinner />}>
+              <IconifyIcon fallback={<Spinner/>} icon={skillsDictionary[key].iconifyIcon} style={{ fontSize: fontSizeStyling, ...skillsDictionary[key].style }} />
+            </Suspense>
           )}
         </Tooltip>
       ))}
