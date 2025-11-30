@@ -203,7 +203,9 @@ export default function HomePage() {
                   </li>
                 ))}
               </UL>
-              <TooltipIconifyIcon skillsDictionary={homeSection.iconifyIcons} />
+              <div className='md:w-1/2 w-5/6 mx-auto'>
+                <TooltipIconifyIcon skillsDictionary={homeSection.iconifyIcons} />
+              </div>
             </Callout>
           ))}
         </div>

@@ -431,7 +431,9 @@ export default function ExperiencePage() {
                             <Tag key={jobTag}>{jobTag}</Tag>
                           ))}
                         </div>
-                        <TooltipIconifyIcon skillsDictionary={section.jobSkills} />
+                        <div className='md:w-1/2 w-5/6 mx-auto'>
+                          <TooltipIconifyIcon skillsDictionary={section.jobSkills} />
+                        </div>
                       </SectionCard>
                     </Section>
                   )

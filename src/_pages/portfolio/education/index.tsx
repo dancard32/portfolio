@@ -458,9 +458,9 @@ export default function EducationPage() {
                   <Tooltip content={'See more'}>
                     <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
                   </Tooltip>
-                  <div className='flex flex-col items-center'>
+                  <div className='flex flex-col items-center h-64'>
                     <img className='w-32! h-32! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
-                    <Card className='rounded-md! shadow-lg! w-full! bottom-0!'>
+                    <Card className='rounded-md! shadow-lg! w-full! h-32'>
                       <div className='flex flex-col items-center text-center'>
                         <H4>{skill.title}</H4>
                         <H6>{parentSkill.sectionTitle}</H6>

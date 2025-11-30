@@ -340,7 +340,9 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 ) : null}
-                <TooltipIconifyIcon skillsDictionary={parentSkill.languages} />
+                <div className='mx-auto'>
+                  <TooltipIconifyIcon skillsDictionary={parentSkill.languages} />
+                </div>
               </div>
             </Card>
           ))}
@@ -378,7 +380,9 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 ) : null}
-                <TooltipIconifyIcon skillsDictionary={parentSkill.languages} />
+                <div className='mx-auto'>
+                  <TooltipIconifyIcon skillsDictionary={parentSkill.languages} />
+                </div>
               </div>
             </Card>
           ))}
