@@ -18,7 +18,6 @@ import { ThemeProvider, useTheme } from './hooks/Context'
 
 export function App() {
   const { isDark, isMobile } = useTheme();
-  console.log(isMobile)
 
   // Colors.DARK_GRAY3 and Colors.LIGHT_GRAY3 are not caching
   const bgColor = isDark ? `bg-[#2F343C]` : `bg-[#E5E8EB]`

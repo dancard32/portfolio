@@ -1,52 +1,7 @@
-import {
-  Card,
-  H1,
-  H3,
-  Button,
-  H2,
-  CompoundTag,
-  Tag,
-  Callout,
-  UL,
-  Tooltip,
-  Divider,
-  Icon,
-  Colors,
-  ButtonGroup,
-  Intent,
-} from '@blueprintjs/core'
+import { Card, H1, H3, Button, H2, CompoundTag, Tag, Callout, UL, Divider, Icon, Colors, ButtonGroup, Intent } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import { useNavigate } from 'react-router'
-import IconifyIcon from '../../components/IconifyIcon'
-import { useTheme } from '../../hooks/Context'
-
-interface DictionaryToolTipProps {
-  iconifyIcon: string
-  style: any
-}
-interface TooltipIconifyIconProps {
-  skillsDictionary: Record<string, string | DictionaryToolTipProps>
-}
-
-function TooltipIconifyIcon({ skillsDictionary }: TooltipIconifyIconProps) {
-  const { isMobile } = useTheme()
-
-  const fontSizeStyling = `${isMobile ? '24px' : '48px'}`
-
-  return (
-    <div className='justify-center flex flex-row flex-wrap gap-2'>
-      {Object.keys(skillsDictionary).map((key) => (
-        <Tooltip content={key} placement='bottom'>
-          {typeof skillsDictionary[key] === 'string' ? (
-            <IconifyIcon icon={skillsDictionary[key]} style={{ fontSize: fontSizeStyling }} />
-          ) : (
-            <IconifyIcon icon={skillsDictionary[key].iconifyIcon} style={{ fontSize: fontSizeStyling, ...skillsDictionary[key].style }} />
-          )}
-        </Tooltip>
-      ))}
-    </div>
-  )
-}
+import { TooltipIconifyIcon } from '../../components/TooltipIconifyIcon'
 
 export default function HomePage() {
   const navigate = useNavigate()
@@ -124,7 +79,7 @@ export default function HomePage() {
 
   return (
     <div className='home-page p-2 m-2 md:p-4 md:m-4'>
-      <Card className='flex flex-col p-4!'>
+      <Card className='flex flex-col p-4! gap-y-2!'>
         <div className='flex flex-col md:flex-row mx-aut!o p-2 m-4 gap-2 md:pl-32 md:pr-32 '>
           <img className='object-contain w-64 rounded-full!' src='SQ_PFP.jpg' alt='Profile Picture' />
           <div className='flex flex-col gap-1'>
@@ -145,7 +100,7 @@ export default function HomePage() {
             </div>
             Focused on delivering high-impact solutions using the latest technologies and best practices
             <div>
-              <CompoundTag endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent='Arlington' round={true}>
+              <CompoundTag intent='primary' endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent='Arlington'>
                 <span>Virginia</span>
               </CompoundTag>
             </div>

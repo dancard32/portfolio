@@ -16,14 +16,14 @@ export default function ResponsiveNavbar() {
       icon: IconNames.HOME,
     },
     {
+      id: 'experience',
+      displayName: 'Experience',
+      icon: IconNames.BRIEFCASE,
+    },
+    {
       id: 'education',
       displayName: 'Education',
       icon: IconNames.LEARNING,
-    },
-    {
-      id: 'experience',
-      displayName: 'Experience',
-      icon: IconNames.DESKTOP,
     },
     {
       id: 'projects',
