@@ -1,0 +1,1 @@
+import{c as t,ac as i,a as D,r as l,D as m}from"./index-OHX7cfUs.js";const o=({className:s,compact:a=!1,tagName:e="div",...r})=>{const c=t(i,{[D]:a},s);return l.createElement(e,{...r,className:c})};o.displayName=`${m}.Divider`;export{o as D};
