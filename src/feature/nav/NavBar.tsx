@@ -5,7 +5,7 @@ import { IconNames } from '@blueprintjs/icons'
 import { useTheme } from '../../hooks/Context'
 
 export default function ResponsiveNavbar() {
-  const { isDark, toggleDarkMode, isMobile } = useTheme();
+  const { isDark, toggleDarkMode, isMobile } = useTheme()
   const [selectedTabId, setSelectedTabId] = useState<string>('home')
   const navigate = useNavigate()
 

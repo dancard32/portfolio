@@ -2,7 +2,7 @@ import { Card, H1, Spinner, Text } from '@blueprintjs/core'
 import { useTheme } from '../hooks/Context'
 
 export default function FallBackComponent() {
-  const { isDark } = useTheme();
+  const { isDark } = useTheme()
 
   return (
     <div className={isDark ? 'bp6-dark' : 'bp6'} style={{ width: '100vw', height: '100vh' }}>

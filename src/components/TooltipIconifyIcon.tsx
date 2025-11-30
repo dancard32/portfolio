@@ -18,15 +18,19 @@ export function TooltipIconifyIcon({ skillsDictionary }: TooltipIconifyIconProps
 
   return (
     <div className='justify-center flex flex-row flex-wrap gap-2 w-1/2 mx-auto!'>
-      {Object.keys(skillsDictionary).map((key, idx) => (
+      {Object.keys(skillsDictionary).map((key) => (
         <Tooltip key={key} content={key} placement='bottom'>
           {typeof skillsDictionary[key] === 'string' ? (
             <Suspense fallback={<Spinner />}>
-              <IconifyIcon fallback={<Spinner/>} icon={skillsDictionary[key]} style={{ fontSize: fontSizeStyling }} />
+              <IconifyIcon fallback={<Spinner />} icon={skillsDictionary[key]} style={{ fontSize: fontSizeStyling }} />
             </Suspense>
           ) : (
             <Suspense fallback={<Spinner />}>
-              <IconifyIcon fallback={<Spinner/>} icon={skillsDictionary[key].iconifyIcon} style={{ fontSize: fontSizeStyling, ...skillsDictionary[key].style }} />
+              <IconifyIcon
+                fallback={<Spinner />}
+                icon={skillsDictionary[key].iconifyIcon}
+                style={{ fontSize: fontSizeStyling, ...skillsDictionary[key].style }}
+              />
             </Suspense>
           )}
         </Tooltip>

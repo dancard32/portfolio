@@ -238,7 +238,8 @@ export default function ExperiencePage() {
           dateEnd: 'June 2024',
           officeCity: 'Atlanta',
           officeState: 'Georgia',
-          jobDescription: 'Supported the development and implementation of educational programs and resources to promote academic integrity and reduce plagiarism. My role involved collaborating with faculty members and students to to emphasize the importance of original thinking and proper citation practices.',
+          jobDescription:
+            'Supported the development and implementation of educational programs and resources to promote academic integrity and reduce plagiarism. My role involved collaborating with faculty members and students to to emphasize the importance of original thinking and proper citation practices.',
           jobBulletPoints: [],
           jobTags: [],
           jobSkills: {},
@@ -252,7 +253,8 @@ export default function ExperiencePage() {
           dateEnd: 'April 2021',
           officeCity: 'Ann Arbor',
           officeState: 'Michigan',
-          jobDescription: 'Assisted in managing and leading the mechanical engineering lab, guiding students in setting up and using various equipment such as wind tunnels, load cells, and electronic benches. My role involved providing hands-on training and support to students, ensuring they were proficient in operating these tools for their research projects.',
+          jobDescription:
+            'Assisted in managing and leading the mechanical engineering lab, guiding students in setting up and using various equipment such as wind tunnels, load cells, and electronic benches. My role involved providing hands-on training and support to students, ensuring they were proficient in operating these tools for their research projects.',
           jobBulletPoints: [],
           jobTags: [],
           jobSkills: {},

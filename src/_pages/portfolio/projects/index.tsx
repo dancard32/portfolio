@@ -12,19 +12,14 @@ interface projectCalloutSkills {
   languages: Record<string, string | any>
 }
 export default function ProjectsPage() {
-  const {isDark} = useTheme();
+  const { isDark } = useTheme()
 
   const coding: projectCalloutSkills[] = [
     {
       title: 'portfolio',
       calloutUrl: 'https://github.com/dancard32/portfolio',
       description: 'A static portfolio website of the currently displayed website written in React + Vite, TailwindCSS, BlueprintJS',
-      projectTags: [
-        'Web Development',
-        'Responsive Design',
-        'TypeScript',
-        'GitHub Pages Deployment',
-      ],
+      projectTags: ['Web Development', 'Responsive Design', 'TypeScript', 'GitHub Pages Deployment'],
       languages: {
         React: 'devicon:react',
         Vite: 'devicon:vitejs',
@@ -328,7 +323,7 @@ export default function ProjectsPage() {
         <Divider />
         <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
           {coding.map((parentSkill, parentSkillId) => (
-            <Card key={`${parentSkill}-${parentSkillId}`} className='rounded-md! shadow-lg! p-2!' style={{backgroundColor: bgColor}}>
+            <Card key={`${parentSkill}-${parentSkillId}`} className='rounded-md! shadow-lg! p-2!' style={{ backgroundColor: bgColor }}>
               <Tooltip content={'See more'}>
                 <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(parentSkill.calloutUrl, '_blank')} />
               </Tooltip>
@@ -366,7 +361,7 @@ export default function ProjectsPage() {
         <Divider />
         <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
           {engr.map((parentSkill, parentSkillId) => (
-            <Card key={`${parentSkill}-${parentSkillId}`} className={`rounded-md! shadow-lg! p-2!`} style={{backgroundColor: bgColor}}>
+            <Card key={`${parentSkill}-${parentSkillId}`} className={`rounded-md! shadow-lg! p-2!`} style={{ backgroundColor: bgColor }}>
               <Tooltip content={'See more'}>
                 <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(parentSkill.calloutUrl, '_blank')} />
               </Tooltip>

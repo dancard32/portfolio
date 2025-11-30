@@ -1,8 +1,7 @@
-import { ButtonGroup, Button } from "@blueprintjs/core";
-import { TooltipIconifyIcon } from "./TooltipIconifyIcon";
+import { ButtonGroup, Button } from '@blueprintjs/core'
+import { TooltipIconifyIcon } from './TooltipIconifyIcon'
 
 export default function ContactInfo() {
-
   return (
     <ButtonGroup>
       <Button
