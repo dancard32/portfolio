@@ -1,8 +1,9 @@
-import { Card, H1, H3, Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, UL } from '@blueprintjs/core'
+import { H1, H3, Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
 import { useTheme } from '../../../hooks/Context'
 import { TooltipIconifyIcon } from '../../../components/TooltipIconifyIcon'
+import MainContent from '../../../components/MainContent'
 
 interface experienceSectionSkill {
   position: string
@@ -350,8 +351,8 @@ export default function ExperiencePage() {
   ]
 
   return (
-    <div className='experience-page p-2 m-2 md:p-4 md:m-4'>
-      <Card className='flex flex-col gap-y-2! md:p-4! p-2!'>
+    <MainContent className='experience-page'>
+      <div className='flex flex-col gap-y-2! md:p-4! p-2!'>
         <div className='flex flex-col gap-1 items-center'>
           <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
             Experience
@@ -405,7 +406,7 @@ export default function ExperiencePage() {
                   return (
                     <Section
                       key={`${section}-${sectionId}`}
-                      className='rounded-md! shadow-lg! p-2! md:p-4!'
+                      className='rounded-md! p-2! md:p-4!'
                       title={<H4>{section.position}</H4>}
                       icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.companyLogo} />}
                       subtitle={
@@ -418,14 +419,14 @@ export default function ExperiencePage() {
                     >
                       <SectionCard className='flex flex-col gap-2'>
                         {section.jobDescription}
-                        <UL>
+                        <div>
                           {section.jobBulletPoints.map((bulletPoint, idx) => (
-                            <li key={idx} className='flex flex-row gap-2'>
+                            <div key={idx} className='flex flex-row gap-2'>
                               <Icon icon={IconNames.CIRCLE} />
                               <span className='text-md!'>{bulletPoint}</span>
-                            </li>
+                            </div>
                           ))}
-                        </UL>
+                        </div>
                         <div className='flex flex-wrap gap-1'>
                           {section.jobTags.map((jobTag) => (
                             <Tag key={jobTag}>{jobTag}</Tag>
@@ -442,7 +443,7 @@ export default function ExperiencePage() {
             </Section>
           )
         })}
-      </Card>
-    </div>
+      </div>
+    </MainContent>
   )
 }

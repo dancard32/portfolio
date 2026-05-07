@@ -1,12 +1,13 @@
 import { Card, H1, H3, Icon, Divider, Button, Intent, Section, SectionCard } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import ContactInfo from '../../../components/ContactInfo'
+import MainContent from '../../../components/MainContent'
 
 export default function ContactPage() {
   return (
-    <div className='experience-page p-2 m-2 md:p-4 md:m-4'>
+    <MainContent className='contact-page'>
       <Card className='flex flex-col p-4! gap-y-2! h-[90vh]!'>
-        <div className='flex flex-col gap-1 items-center w-1/2 mx-auto text-center'>
+        <div className='flex flex-col gap-1 items-center w-full md:w-1/2 mx-auto text-center'>
           <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
             Contact
           </H1>
@@ -47,6 +48,6 @@ export default function ContactPage() {
           </SectionCard>
         </Section>
       </Card>
-    </div>
+    </MainContent>
   )
 }

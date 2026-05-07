@@ -2,6 +2,7 @@ import { Card, H1, H3, H6, Icon, Colors, CompoundTag, Divider, Tag, Section, H4,
 import { IconNames } from '@blueprintjs/icons'
 import { useTheme } from '../../../hooks/Context'
 import { Fragment } from 'react/jsx-runtime'
+import MainContent from '../../../components/MainContent'
 
 interface educationSectionSkill {
   degree: string
@@ -306,9 +307,9 @@ export default function EducationPage() {
   ]
 
   return (
-    <div className='experience-page p-2 m-2 md:p-4 md:m-4'>
+    <MainContent className='education-page'>
       <Card className='flex flex-col p-4! gap-y-2!'>
-        <div className='flex flex-col gap-1 items-center w-1/2 mx-auto text-center'>
+        <div className='flex flex-col gap-1 items-center w-full md:w-1/2 mx-auto text-center'>
           <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
             Education
           </H1>
@@ -352,7 +353,7 @@ export default function EducationPage() {
             return (
               <Section
                 key={`section-${sectionId}`}
-                className='rounded-md! shadow-lg!'
+                className='rounded-md!'
                 title={
                   <>
                     <div className='flex flex-row'>
@@ -413,7 +414,7 @@ export default function EducationPage() {
           </H1>
         </div>
         <Divider />
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
           {skillSections.map((parentSkill, parentSkillId) => (
             <Fragment key={`${parentSkill}-${parentSkillId}`}>
               {parentSkill.skills.map((skill, skillId) => (
@@ -425,9 +426,9 @@ export default function EducationPage() {
                   <Tooltip content={'See more'}>
                     <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
                   </Tooltip>
-                  <div className='flex flex-col items-center'>
+                  <div className='flex flex-col items-center overflow-auto'>
                     <img className='w-16! h-16! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
-                    <Card className='rounded-md! shadow-lg! w-full!'>
+                    <Card className='rounded-md! w-full! h-32 overflow-auto'>
                       <div className='flex flex-col items-center text-center'>
                         <H4>{skill.title}</H4>
                         <H6>{parentSkill.sectionTitle}</H6>
@@ -446,7 +447,7 @@ export default function EducationPage() {
           </H1>
         </div>
         <Divider />
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-2 m-4'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
           {certificationSections.map((parentSkill, parentSkillId) => (
             <Fragment key={`${parentSkill}-${parentSkillId}`}>
               {parentSkill.skills.map((skill, skillId) => (
@@ -458,9 +459,9 @@ export default function EducationPage() {
                   <Tooltip content={'See more'}>
                     <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
                   </Tooltip>
-                  <div className='flex flex-col items-center h-64'>
+                  <div className='flex flex-col items-center h-64 overflow-auto'>
                     <img className='w-32! h-32! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
-                    <Card className='rounded-md! shadow-lg! w-full! h-32'>
+                    <Card className='rounded-md! w-full! h-32 overflow-auto'>
                       <div className='flex flex-col items-center text-center'>
                         <H4>{skill.title}</H4>
                         <H6>{parentSkill.sectionTitle}</H6>
@@ -473,6 +474,6 @@ export default function EducationPage() {
           ))}
         </div>
       </Card>
-    </div>
+    </MainContent>
   )
 }
