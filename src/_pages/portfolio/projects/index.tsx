@@ -2,6 +2,7 @@ import { Card, H1, H2, H3, H6, Icon, Divider, Button, Tag, Intent, Tooltip, Colo
 import { IconNames } from '@blueprintjs/icons'
 import { TooltipIconifyIcon } from '../../../components/TooltipIconifyIcon'
 import { useTheme } from '../../../hooks/Context'
+import MainContent from '../../../components/MainContent'
 
 interface projectCalloutSkills {
   title: string
@@ -299,9 +300,9 @@ export default function ProjectsPage() {
   const bgColor = isDark ? Colors.DARK_GRAY3 : Colors.LIGHT_GRAY5
 
   return (
-    <div className='experience-page p-2 m-2 md:p-4 md:m-4'>
+    <MainContent className='projects-page'>
       <Card className='flex flex-col p-4! gap-y-2!'>
-        <div className='flex flex-col gap-1 items-center w-1/2 mx-auto text-center'>
+        <div className='flex flex-col gap-1 items-center w-full md:w-1/2 mx-auto text-center'>
           <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
             Projects
           </H1>
@@ -348,7 +349,7 @@ export default function ProjectsPage() {
           ))}
         </div>
 
-        <div className='flex flex-col gap-1 items-center w-1/2 mx-auto text-center mt-16'>
+        <div className='flex flex-col gap-1 items-center w-full md:w-1/2  mx-auto text-center mt-16'>
           <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
             Aerospace and Mechanical Engineering Projects
           </H1>
@@ -388,6 +389,6 @@ export default function ProjectsPage() {
           ))}
         </div>
       </Card>
-    </div>
+    </MainContent>
   )
 }

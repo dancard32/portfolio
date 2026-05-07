@@ -1,9 +1,10 @@
-import { Card, H1, H3, Button, H2, CompoundTag, Tag, Callout, UL, Divider, Icon, Colors, Intent } from '@blueprintjs/core'
+import { Card, H1, H3, Button, H2, CompoundTag, Tag, Callout, Divider, Icon, Colors, Intent } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import { useNavigate } from 'react-router'
 import { TooltipIconifyIcon } from '../../components/TooltipIconifyIcon'
 import ContactInfo from '../../components/ContactInfo'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
+import MainContent from '../../components/MainContent'
 
 interface homeSections {
   title: string
@@ -139,7 +140,7 @@ export default function HomePage() {
   ]
 
   return (
-    <div className='home-page p-2 m-2 md:p-4 md:m-4'>
+    <MainContent className='home-page'>
       <Card className='flex flex-col p-4! gap-y-2!'>
         <div className='flex flex-col md:flex-row mx-auto! p-2 m-4 gap-2 md:pl-32 md:pr-32 '>
           <img className='object-contain w-64 rounded-full!' src='SQ_PFP.jpg' alt='Profile Picture' />
@@ -194,15 +195,13 @@ export default function HomePage() {
         <Divider />
         <div className='flex flex-col gap-4 p-1 m-1 md:p-2 md:m-2'>
           {home.map((homeSection) => (
-            <Callout icon={<Icon icon={homeSection.icon} size={IconSize.LARGE} />} className={`rounded-md! shadow-lg!`}>
+            <Callout icon={<Icon icon={homeSection.icon} size={IconSize.LARGE} />} className={`rounded-md!`}>
               <H3>{homeSection.title}</H3>
-              <UL>
+              <div className='flex flex-col'>
                 {homeSection.bulletPoints.map((bulletedPoint) => (
-                  <li>
-                    <span className='text-lg!'>{bulletedPoint}</span>
-                  </li>
+                  <span className='text-lg!'>{bulletedPoint}</span>
                 ))}
-              </UL>
+              </div>
               <div className='md:w-1/2 w-5/6 mx-auto'>
                 <TooltipIconifyIcon skillsDictionary={homeSection.iconifyIcons} />
               </div>
@@ -210,6 +209,6 @@ export default function HomePage() {
           ))}
         </div>
       </Card>
-    </div>
+    </MainContent>
   )
 }
