@@ -1,8 +1,9 @@
-import { Card, H1, H2, H3, H6, Icon, Divider, Button, Tag, Intent, Tooltip, Colors } from '@blueprintjs/core'
+import { Card, H2, H6, Divider, Button, Tag, Intent, Tooltip, Colors } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { TooltipIconifyIcon } from '../../../components/TooltipIconifyIcon'
 import { useTheme } from '../../../hooks/Context'
 import MainContent from '../../../components/MainContent'
+import HeaderSection from '../../../components/HeaderSection'
 
 interface projectCalloutSkills {
   title: string
@@ -301,17 +302,13 @@ export default function ProjectsPage() {
 
   return (
     <MainContent className='projects-page'>
-      <Card className='flex flex-col p-4! gap-y-2!'>
-        <div className='flex flex-col gap-1 items-center w-full md:w-1/2 mx-auto text-center'>
-          <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
-            Projects
-          </H1>
-          <div className='flex flex-row flex-wrap items-center gap-2'>
-            <Icon icon={IconNames.CODE} />
-            <H3 className='my-auto!'>Personal Software Engineering Projects</H3>
-          </div>
-          Here are some projects that showcase my skills as a developing software engineer. As I learn more about programming I hope that I
-          can contribute more towards open-source software and aid in the advancement of accessible software
+      <HeaderSection
+        title='Projects'
+        subTitle='Personal Software Engineering Projects'
+        description='Here are some projects that showcase my skills as a developing software engineer. As I learn more about programming I hope that I
+        can contribute more towards open-source software and aid in the advancement of accessible software'
+        icon={IconNames.CODE}
+        button={
           <Button
             className='rounded-md!'
             intent={Intent.PRIMARY}
@@ -319,76 +316,72 @@ export default function ProjectsPage() {
             text='More Projects (Github)'
             onClick={() => window.open('https://github.com/dancard32', '_blank')}
           />
-        </div>
+        }
+      />
 
-        <Divider />
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
-          {coding.map((parentSkill, parentSkillId) => (
-            <Card key={`${parentSkill}-${parentSkillId}`} className='rounded-md! shadow-lg! p-2!' style={{ backgroundColor: bgColor }}>
-              <Tooltip content={'See more'}>
-                <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(parentSkill.calloutUrl, '_blank')} />
-              </Tooltip>
-              <div className='flex flex-col gap-2!'>
-                {parentSkill.logo ? (
-                  <img className='w-16! h-16! object-contain' src={parentSkill.logo} alt={`${parentSkill.title} Image`} />
-                ) : null}
-                <H2>{parentSkill.title}</H2>
-                <H6>{parentSkill.description}</H6>
-                {parentSkill.projectTags ? (
-                  <div className='flex flex-wrap gap-1'>
-                    {parentSkill.projectTags.map((projectTag) => (
-                      <Tag key={projectTag}>{projectTag}</Tag>
-                    ))}
-                  </div>
-                ) : null}
-                <div className='mx-auto'>
-                  <TooltipIconifyIcon skillsDictionary={parentSkill.languages} />
+      <Divider />
+      <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
+        {coding.map((parentSkill, parentSkillId) => (
+          <Card key={`${parentSkill}-${parentSkillId}`} className='rounded-md! shadow-lg! p-2!' style={{ backgroundColor: bgColor }}>
+            <Tooltip content={'See more'}>
+              <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(parentSkill.calloutUrl, '_blank')} />
+            </Tooltip>
+            <div className='flex flex-col gap-2!'>
+              {parentSkill.logo ? (
+                <img className='w-16! h-16! object-contain' src={parentSkill.logo} alt={`${parentSkill.title} Image`} />
+              ) : null}
+              <H2>{parentSkill.title}</H2>
+              <H6>{parentSkill.description}</H6>
+              {parentSkill.projectTags ? (
+                <div className='flex flex-wrap gap-1'>
+                  {parentSkill.projectTags.map((projectTag) => (
+                    <Tag key={projectTag}>{projectTag}</Tag>
+                  ))}
                 </div>
+              ) : null}
+              <div className='mx-auto'>
+                <TooltipIconifyIcon skillsDictionary={parentSkill.languages} />
               </div>
-            </Card>
-          ))}
-        </div>
+            </div>
+          </Card>
+        ))}
+      </div>
 
-        <div className='flex flex-col gap-1 items-center w-full md:w-1/2  mx-auto text-center mt-16'>
-          <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
-            Aerospace and Mechanical Engineering Projects
-          </H1>
-          <div className='flex flex-row flex-wrap items-center gap-2'>
-            <Icon icon={IconNames.FIGHTER_JET} />
-            <H3 className='my-auto!'>Personal Software Engineering Projects</H3>
-          </div>
-          Below are my projects that are based in engineering, that I have taken in my free time or are from my schooling. Note that some of
-          these projects wil have information omitted to avoid infringing ITAR
-        </div>
+      <HeaderSection
+        title='Aerospace and Mechanical Engineering Projects'
+        subTitle='Personal Software Engineering Projects'
+        description='Below are my projects that are based in engineering, that I have taken in my free time or are from my schooling. Note that some of
+        these projects wil have information omitted to avoid infringing ITAR'
+        icon={IconNames.FIGHTER_JET}
+      />
 
-        <Divider />
-        <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
-          {engr.map((parentSkill, parentSkillId) => (
-            <Card key={`${parentSkill}-${parentSkillId}`} className={`rounded-md! shadow-lg! p-2!`} style={{ backgroundColor: bgColor }}>
-              <Tooltip content={'See more'}>
-                <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(parentSkill.calloutUrl, '_blank')} />
-              </Tooltip>
-              <div className='flex flex-col gap-2!'>
-                {parentSkill.logo ? (
-                  <img className='w-32! h-32! object-contain mx-auto!' src={parentSkill.logo} alt={`${parentSkill.title} Image`} />
-                ) : null}
-                <H2>{parentSkill.title}</H2>
-                <H6>{parentSkill.description}</H6>
-                {parentSkill.projectTags ? (
-                  <div className='flex flex-wrap gap-1'>
-                    {parentSkill.projectTags.map((projectTag) => (
-                      <Tag key={projectTag}>{projectTag}</Tag>
-                    ))}
-                  </div>
-                ) : null}
-                <div className='mx-auto'>
-                  <TooltipIconifyIcon skillsDictionary={parentSkill.languages} />
+      <Divider />
+      <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
+        {engr.map((parentSkill, parentSkillId) => (
+          <Card key={`${parentSkill}-${parentSkillId}`} className={`rounded-md! shadow-lg! p-2!`} style={{ backgroundColor: bgColor }}>
+            <Tooltip content={'See more'}>
+              <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(parentSkill.calloutUrl, '_blank')} />
+            </Tooltip>
+            <div className='flex flex-col gap-2!'>
+              {parentSkill.logo ? (
+                <img className='w-32! h-32! object-contain mx-auto!' src={parentSkill.logo} alt={`${parentSkill.title} Image`} />
+              ) : null}
+              <H2>{parentSkill.title}</H2>
+              <H6>{parentSkill.description}</H6>
+              {parentSkill.projectTags ? (
+                <div className='flex flex-wrap gap-1'>
+                  {parentSkill.projectTags.map((projectTag) => (
+                    <Tag key={projectTag}>{projectTag}</Tag>
+                  ))}
                 </div>
+              ) : null}
+              <div className='mx-auto'>
+                <TooltipIconifyIcon skillsDictionary={parentSkill.languages} />
               </div>
-            </Card>
-          ))}
-        </div>
-      </Card>
+            </div>
+          </Card>
+        ))}
+      </div>
     </MainContent>
   )
 }
