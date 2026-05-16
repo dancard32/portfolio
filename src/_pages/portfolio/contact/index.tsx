@@ -1,8 +1,8 @@
 import { Icon, Divider, Button, Intent, Section, SectionCard } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
-import ContactInfo from '../../../components/ContactInfo'
-import MainContent from '../../../components/MainContent'
-import HeaderSection from '../../../components/HeaderSection'
+import ContactInfo from '../../../components/contact-info'
+import MainContent from '../../../components/main-content'
+import HeaderSection from '../../../components/header-section'
 
 export default function ContactPage() {
   return (

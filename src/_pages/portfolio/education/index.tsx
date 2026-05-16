@@ -1,9 +1,9 @@
 import { Card, H6, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button, Tooltip } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
-import { useTheme } from '../../../hooks/Context'
+import { useTheme } from '../../../hooks/context'
 import { Fragment } from 'react/jsx-runtime'
-import MainContent from '../../../components/MainContent'
-import HeaderSection from '../../../components/HeaderSection'
+import MainContent from '../../../components/main-content'
+import HeaderSection from '../../../components/header-section'
 
 interface educationSectionSkill {
   degree: string

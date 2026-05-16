@@ -1,9 +1,9 @@
 import { Card, H2, H6, Divider, Button, Tag, Intent, Tooltip, Colors } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
-import { TooltipIconifyIcon } from '../../../components/TooltipIconifyIcon'
-import { useTheme } from '../../../hooks/Context'
-import MainContent from '../../../components/MainContent'
-import HeaderSection from '../../../components/HeaderSection'
+import { TooltipIconifyIcon } from '../../../components/tooltip-iconify-icon'
+import { useTheme } from '../../../hooks/context'
+import MainContent from '../../../components/main-content'
+import HeaderSection from '../../../components/header-section'
 
 interface projectCalloutSkills {
   title: string

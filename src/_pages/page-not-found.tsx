@@ -1,7 +1,7 @@
 import { Card, H1, H3, Text, Icon, Button, Intent } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { useNavigate } from 'react-router'
-import MainContent from '../components/MainContent'
+import MainContent from '../components/main-content'
 
 export default function PageNotFound() {
   const navigate = useNavigate()

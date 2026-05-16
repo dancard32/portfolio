@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Navbar, NavbarGroup, NavbarHeading, NavbarDivider, Tooltip, Button } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
-import { useTheme } from '../../hooks/Context'
+import { useTheme } from '../../hooks/context'
 
 export default function ResponsiveNavbar() {
   const { isDark, toggleDarkMode, isMobile } = useTheme()

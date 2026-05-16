@@ -1,10 +1,10 @@
 import { Card, H1, H3, Button, H2, CompoundTag, Tag, Callout, Divider, Icon, Colors, Intent } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import { useNavigate } from 'react-router'
-import { TooltipIconifyIcon } from '../../components/TooltipIconifyIcon'
-import ContactInfo from '../../components/ContactInfo'
+import { TooltipIconifyIcon } from '../../components/tooltip-iconify-icon'
+import ContactInfo from '../../components/contact-info'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
-import MainContent from '../../components/MainContent'
+import MainContent from '../../components/main-content'
 
 interface homeSections {
   title: string

@@ -11,10 +11,10 @@ import '@blueprintjs/select/lib/css/blueprint-select.css'
 import '@blueprintjs/table/lib/css/table.css'
 
 import routes from '~react-pages'
-import PageNotFound from './_pages/PageNotFound'
-import ResponsiveNavbar from './feature/nav/NavBar'
-import FallBackComponent from './components/FallBackComponent'
-import { ThemeProvider, useTheme } from './hooks/Context'
+import PageNotFound from './_pages/page-not-found'
+import ResponsiveNavbar from './feature/nav/nav-bar'
+import FallBackComponent from './components/fallback-component'
+import { ThemeProvider, useTheme } from './hooks/context'
 
 export function App() {
   const { isDark, isMobile } = useTheme()

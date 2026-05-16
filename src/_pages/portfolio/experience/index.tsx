@@ -1,10 +1,10 @@
 import { Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
-import { useTheme } from '../../../hooks/Context'
-import { TooltipIconifyIcon } from '../../../components/TooltipIconifyIcon'
-import MainContent from '../../../components/MainContent'
-import HeaderSection from '../../../components/HeaderSection'
+import { useTheme } from '../../../hooks/context'
+import { TooltipIconifyIcon } from '../../../components/tooltip-iconify-icon'
+import MainContent from '../../../components/main-content'
+import HeaderSection from '../../../components/header-section'
 
 interface experienceSectionSkill {
   position: string
