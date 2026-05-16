@@ -1,4 +1,4 @@
-import { Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard } from '@blueprintjs/core'
+import { Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Intent } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
 import { useTheme } from '../../../hooks/context'
@@ -386,7 +386,12 @@ export default function ExperiencePage() {
                   )
 
                 const CompoundTagElement = (
-                  <CompoundTag intent='primary' endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent={section.officeCity}>
+                  <CompoundTag
+                    intent={Intent.PRIMARY}
+                    endIcon={IconNames.GLOBE}
+                    icon={IconNames.MAP_MARKER}
+                    leftContent={section.officeCity}
+                  >
                     <span>{section.officeState}</span>
                   </CompoundTag>
                 )

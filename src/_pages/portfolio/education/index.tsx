@@ -1,4 +1,4 @@
-import { Card, H6, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button, Tooltip } from '@blueprintjs/core'
+import { Card, H6, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button, Tooltip, Intent } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { useTheme } from '../../../hooks/context'
 import { Fragment } from 'react/jsx-runtime'
@@ -334,7 +334,7 @@ export default function EducationPage() {
             )
 
           const CompoundTagElement = (
-            <CompoundTag intent='primary' endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent={section.collegeCity}>
+            <CompoundTag intent={Intent.PRIMARY} endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent={section.collegeCity}>
               <span>{section.collegeState}</span>
             </CompoundTag>
           )

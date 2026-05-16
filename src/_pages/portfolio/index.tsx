@@ -1,4 +1,4 @@
-import { Card, H1, H3, Button, H2, CompoundTag, Tag, Callout, Divider, Icon, Colors, Intent } from '@blueprintjs/core'
+import { H1, H3, Button, H2, CompoundTag, Tag, Callout, Divider, Icon, Colors, Intent } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import { useNavigate } from 'react-router'
 import { TooltipIconifyIcon } from '../../components/tooltip-iconify-icon'
@@ -141,74 +141,73 @@ export default function HomePage() {
 
   return (
     <MainContent className='home-page'>
-      <Card className='flex flex-col p-4! gap-y-2!'>
-        <div className='flex flex-col md:flex-row mx-auto! p-2 m-4 gap-2 md:pl-32 md:pr-32 '>
-          <img className='object-contain w-64 rounded-full!' src='SQ_PFP.jpg' alt='Profile Picture' />
-          <div className='flex flex-col gap-1'>
-            <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
-              Dan Card
-              <img alt='Wave' src='https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif' width='48px' />
-            </H1>
-            <div className='flex flex-row flex-wrap items-center gap-2'>
-              <Icon icon={IconNames.BRIEFCASE} />
-              <H3 className='my-auto!'>
-                Forward Deployed Software Engineer @&nbsp;
-                <Tag onClick={() => window.open('https://www.palantir.com/', '_blank')} icon={IconNames.OFFICE}>
-                  <a href='https://www.palantir.com/' target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
-                    Palantir Technologies
-                  </a>
-                </Tag>
-              </H3>
-            </div>
-            Driven engineer focused on delivering high-impact solutions using the latest technologies and best practices
-            <div>
-              <CompoundTag intent='primary' endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent='Arlington'>
-                <span>Virginia</span>
-              </CompoundTag>
-            </div>
-            <div className='flex flex-row flex-wrap gap-1'>
-              <Tag>Distributed Systems</Tag>
-              <Tag>High Availability</Tag>
-              <Tag>Builder</Tag>
-              <Tag>Rapid Development</Tag>
-            </div>
-            <div className='flex flex-row gap-2'>
-              <Button
-                icon={IconNames.DOCUMENT}
-                className='rounded-md!'
-                text='Contact Me'
-                intent={Intent.PRIMARY}
-                onClick={() => navigate('./contact')}
-              />
-              <Button
-                className='rounded-md!'
-                intent={Intent.PRIMARY}
-                icon={IconNames.PHONE_CALL}
-                text='View Resume'
-                onClick={() => window.open('./pdfs/main.pdf', '_blank')}
-              />
-            </div>
-            <ContactInfo />
+      <div className='flex flex-col md:flex-row mx-auto! p-2 m-4 gap-2 md:pl-32 md:pr-32 '>
+        <img className='object-contain w-64 rounded-full!' src='SQ_PFP.jpg' alt='Profile Picture' />
+        <div className='flex flex-col gap-1'>
+          <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
+            Dan Card
+            <img alt='Wave' src='https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif' width='48px' />
+          </H1>
+          <div className='flex flex-row flex-wrap items-center gap-2'>
+            <Icon icon={IconNames.BRIEFCASE} />
+            <H3 className='my-auto!'>
+              Forward Deployed Software Engineer @&nbsp;
+              <Tag onClick={() => window.open('https://www.palantir.com/', '_blank')} icon={IconNames.OFFICE}>
+                <a href='https://www.palantir.com/' target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
+                  Palantir Technologies
+                </a>
+              </Tag>
+            </H3>
           </div>
+          Driven engineer focused on delivering high-impact solutions using the latest technologies and best practices
+          <div>
+            <CompoundTag intent={Intent.PRIMARY} endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent='Arlington'>
+              <span>Virginia</span>
+            </CompoundTag>
+          </div>
+          <div className='flex flex-row flex-wrap gap-1'>
+            <Tag>Distributed Systems</Tag>
+            <Tag>High Availability</Tag>
+            <Tag>Builder</Tag>
+            <Tag>Rapid Development</Tag>
+          </div>
+          <div className='flex flex-row gap-2'>
+            <Button
+              icon={IconNames.DOCUMENT}
+              className='rounded-md!'
+              text='Contact Me'
+              intent={Intent.PRIMARY}
+              onClick={() => navigate('./contact')}
+            />
+            <Button
+              className='rounded-md!'
+              intent={Intent.PRIMARY}
+              icon={IconNames.PHONE_CALL}
+              text='View Resume'
+              onClick={() => window.open('./pdfs/main.pdf', '_blank')}
+            />
+          </div>
+          <ContactInfo />
         </div>
-        <H2 className='text-center'>Here's what I do</H2>
-        <Divider />
-        <div className='flex flex-col gap-4 p-1 m-1 md:p-2 md:m-2'>
-          {home.map((homeSection) => (
-            <Callout icon={<Icon icon={homeSection.icon} size={IconSize.LARGE} />} className={`rounded-md!`}>
-              <H3>{homeSection.title}</H3>
-              <div className='flex flex-col'>
-                {homeSection.bulletPoints.map((bulletedPoint) => (
-                  <span className='text-lg!'>{bulletedPoint}</span>
-                ))}
-              </div>
-              <div className='md:w-1/2 w-5/6 mx-auto'>
-                <TooltipIconifyIcon skillsDictionary={homeSection.iconifyIcons} />
-              </div>
-            </Callout>
-          ))}
-        </div>
-      </Card>
+      </div>
+
+      <H2 className='text-center'>Here's what I do</H2>
+      <Divider />
+      <div className='flex flex-col gap-4 p-1 m-1 md:p-2 md:m-2'>
+        {home.map((homeSection) => (
+          <Callout icon={<Icon icon={homeSection.icon} size={IconSize.LARGE} />} className={`rounded-md!`}>
+            <H3>{homeSection.title}</H3>
+            <div className='flex flex-col'>
+              {homeSection.bulletPoints.map((bulletedPoint) => (
+                <span className='text-lg!'>{bulletedPoint}</span>
+              ))}
+            </div>
+            <div className='md:w-1/2 w-5/6 mx-auto'>
+              <TooltipIconifyIcon skillsDictionary={homeSection.iconifyIcons} />
+            </div>
+          </Callout>
+        ))}
+      </div>
     </MainContent>
   )
 }
