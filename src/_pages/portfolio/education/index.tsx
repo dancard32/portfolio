@@ -1,8 +1,9 @@
-import { Card, H1, H3, H6, Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button, Tooltip } from '@blueprintjs/core'
+import { Card, H6, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button, Tooltip, Intent } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
-import { useTheme } from '../../../hooks/Context'
+import { useTheme } from '../../../hooks/context'
 import { Fragment } from 'react/jsx-runtime'
-import MainContent from '../../../components/MainContent'
+import MainContent from '../../../components/main-content'
+import HeaderSection from '../../../components/header-section'
 
 interface educationSectionSkill {
   degree: string
@@ -308,172 +309,160 @@ export default function EducationPage() {
 
   return (
     <MainContent className='education-page'>
-      <Card className='flex flex-col p-4! gap-y-2!'>
-        <div className='flex flex-col gap-1 items-center w-full md:w-1/2 mx-auto text-center'>
-          <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
-            Education
-          </H1>
-          <div className='flex flex-row flex-wrap items-center gap-2'>
-            <Icon icon={IconNames.LEARNING} />
-            <H3 className='my-auto!'>Basic Qualification and Certifications</H3>
-          </div>
-          Listed below are my professional education, and working skills, as well as certifications that I have obtained relevant to my
-          engineering background.
-        </div>
-        <Divider />
-        <div className='flex flex-col gap-2 p-2'>
-          {experiences.map((section, sectionId) => {
-            const TagElement =
-              section.collegeUrl !== null ? (
-                <Tag onClick={() => window.open(section.collegeUrl, '_blank')} icon={IconNames.OFFICE}>
-                  <a href={section.collegeUrl} target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
-                    {section.college}
-                  </a>
-                </Tag>
-              ) : (
-                <Tag icon={IconNames.OFFICE}>
-                  <a style={{ color: Colors.BLUE5 }}>{section.college}</a>
-                </Tag>
-              )
+      <HeaderSection
+        title='Education'
+        subTitle='Degrees and Certifications'
+        description='Listed below are my professional education, and working skills, as well as certifications that I have obtained relevant to my
+          engineering background.'
+        icon={IconNames.LEARNING}
+      />
 
-            const CompoundTagElement = (
-              <CompoundTag intent='primary' endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent={section.collegeCity}>
-                <span>{section.collegeState}</span>
-              </CompoundTag>
+      <Divider />
+      <div className='flex flex-col gap-2 p-2'>
+        {experiences.map((section, sectionId) => {
+          const TagElement =
+            section.collegeUrl !== null ? (
+              <Tag onClick={() => window.open(section.collegeUrl, '_blank')} icon={IconNames.OFFICE}>
+                <a href={section.collegeUrl} target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
+                  {section.college}
+                </a>
+              </Tag>
+            ) : (
+              <Tag icon={IconNames.OFFICE}>
+                <a style={{ color: Colors.BLUE5 }}>{section.college}</a>
+              </Tag>
             )
 
-            const rightElementIfWeb = (
-              <span className='text-right'>
-                {section.dateStart} - {section.dateEnd}
-                <br />
-                GPA: {section.gpa}
-              </span>
-            )
+          const CompoundTagElement = (
+            <CompoundTag intent={Intent.PRIMARY} endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent={section.collegeCity}>
+              <span>{section.collegeState}</span>
+            </CompoundTag>
+          )
 
-            return (
-              <Section
-                key={`section-${sectionId}`}
-                className='rounded-md!'
-                title={
-                  <>
-                    <div className='flex flex-row'>
-                      <H4 className='my-auto!'>{section.degree} </H4>
+          const rightElementIfWeb = (
+            <span className='text-right'>
+              {section.dateStart} - {section.dateEnd}
+              <br />
+              GPA: {section.gpa}
+            </span>
+          )
+
+          return (
+            <Section
+              key={`section-${sectionId}`}
+              className='rounded-md!'
+              title={
+                <>
+                  <div className='flex flex-row'>
+                    <H4 className='my-auto!'>{section.degree} </H4>
+                    <Button
+                      icon={IconNames.SHARE}
+                      variant='minimal'
+                      aria-label='share'
+                      onClick={() => window.open(section.degreeUrl, '_blank')}
+                    />
+                  </div>
+                  <div className='flex flex-row'>
+                    <H6 className='my-auto!'>{section.degreeConcentration}</H6>
+                    {section.diplomaUrl ? (
                       <Button
                         icon={IconNames.SHARE}
                         variant='minimal'
                         aria-label='share'
-                        onClick={() => window.open(section.degreeUrl, '_blank')}
+                        onClick={() => window.open(section.diplomaUrl, '_blank')}
                       />
-                    </div>
-                    <div className='flex flex-row'>
-                      <H6 className='my-auto!'>{section.degreeConcentration}</H6>
-                      {section.diplomaUrl ? (
-                        <Button
-                          icon={IconNames.SHARE}
-                          variant='minimal'
-                          aria-label='share'
-                          onClick={() => window.open(section.diplomaUrl, '_blank')}
-                        />
-                      ) : null}
-                    </div>
-                  </>
-                }
-                icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.collegeLogo} />}
-                subtitle={
-                  <>
-                    {TagElement}
-                    <br />
-                    {CompoundTagElement}
-                    {isMobile ? rightElementIfWeb : undefined}
-                  </>
-                }
-                rightElement={!isMobile ? rightElementIfWeb : undefined}
+                    ) : null}
+                  </div>
+                </>
+              }
+              icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.collegeLogo} />}
+              subtitle={
+                <>
+                  {TagElement}
+                  <br />
+                  {CompoundTagElement}
+                  {isMobile ? rightElementIfWeb : undefined}
+                </>
+              }
+              rightElement={!isMobile ? rightElementIfWeb : undefined}
+            >
+              <SectionCard className='flex flex-col gap-2 m-4!'>
+                <div className='flex flex-row flex-wrap gap-1'>
+                  <span className='font-bold'>Coursework:</span>{' '}
+                  {section.classes.map((courseName) => (
+                    <Tag key={courseName}>{courseName}</Tag>
+                  ))}
+                </div>
+                <div className='flex flex-row flex-wrap gap-1'>
+                  <span className='font-bold'>Accolades:</span>
+                  {section.accolades.map((accoladeName) => (
+                    <Tag key={accoladeName}>{accoladeName}</Tag>
+                  ))}
+                </div>
+              </SectionCard>
+            </Section>
+          )
+        })}
+      </div>
+
+      <HeaderSection title='Skills' subTitle='Technologies and Programming languages' icon={IconNames.DRAW} />
+
+      <Divider />
+      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
+        {skillSections.map((parentSkill, parentSkillId) => (
+          <Fragment key={`${parentSkill}-${parentSkillId}`}>
+            {parentSkill.skills.map((skill, skillId) => (
+              <Card
+                key={`skill-${skillId}`}
+                className='rounded-md! shadow-lg! pl-0! pr-0! pb-0!'
+                style={{ backgroundColor: parentSkill.colorCode }}
               >
-                <SectionCard className='flex flex-col gap-2 m-4!'>
-                  <div className='flex flex-row flex-wrap gap-1'>
-                    <span className='font-bold'>Coursework:</span>{' '}
-                    {section.classes.map((courseName) => (
-                      <Tag key={courseName}>{courseName}</Tag>
-                    ))}
-                  </div>
-                  <div className='flex flex-row flex-wrap gap-1'>
-                    <span className='font-bold'>Accolades:</span>
-                    {section.accolades.map((accoladeName) => (
-                      <Tag key={accoladeName}>{accoladeName}</Tag>
-                    ))}
-                  </div>
-                </SectionCard>
-              </Section>
-            )
-          })}
-        </div>
+                <Tooltip content={'See more'}>
+                  <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
+                </Tooltip>
+                <div className='flex flex-col items-center overflow-auto'>
+                  <img className='w-16! h-16! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
+                  <Card className='rounded-md! w-full! h-32 overflow-auto'>
+                    <div className='flex flex-col items-center text-center'>
+                      <H4>{skill.title}</H4>
+                      <H6>{parentSkill.sectionTitle}</H6>
+                    </div>
+                  </Card>
+                </div>
+              </Card>
+            ))}
+          </Fragment>
+        ))}
+      </div>
 
-        <div className='flex flex-col gap-1 items-center'>
-          <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
-            Skills
-          </H1>
-        </div>
-        <Divider />
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
-          {skillSections.map((parentSkill, parentSkillId) => (
-            <Fragment key={`${parentSkill}-${parentSkillId}`}>
-              {parentSkill.skills.map((skill, skillId) => (
-                <Card
-                  key={`skill-${skillId}`}
-                  className='rounded-md! shadow-lg! pl-0! pr-0! pb-0!'
-                  style={{ backgroundColor: parentSkill.colorCode }}
-                >
-                  <Tooltip content={'See more'}>
-                    <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
-                  </Tooltip>
-                  <div className='flex flex-col items-center overflow-auto'>
-                    <img className='w-16! h-16! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
-                    <Card className='rounded-md! w-full! h-32 overflow-auto'>
-                      <div className='flex flex-col items-center text-center'>
-                        <H4>{skill.title}</H4>
-                        <H6>{parentSkill.sectionTitle}</H6>
-                      </div>
-                    </Card>
-                  </div>
-                </Card>
-              ))}
-            </Fragment>
-          ))}
-        </div>
-
-        <div className='flex flex-col gap-1 items-center'>
-          <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
-            Certifications
-          </H1>
-        </div>
-        <Divider />
-        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
-          {certificationSections.map((parentSkill, parentSkillId) => (
-            <Fragment key={`${parentSkill}-${parentSkillId}`}>
-              {parentSkill.skills.map((skill, skillId) => (
-                <Card
-                  key={`${skill}-${skillId}`}
-                  className='rounded-md! shadow-lg! pl-0! pr-0! pb-0!'
-                  style={{ backgroundColor: parentSkill.colorCode }}
-                >
-                  <Tooltip content={'See more'}>
-                    <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
-                  </Tooltip>
-                  <div className='flex flex-col items-center h-64 overflow-auto'>
-                    <img className='w-32! h-32! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
-                    <Card className='rounded-md! w-full! h-32 overflow-auto'>
-                      <div className='flex flex-col items-center text-center'>
-                        <H4>{skill.title}</H4>
-                        <H6>{parentSkill.sectionTitle}</H6>
-                      </div>
-                    </Card>
-                  </div>
-                </Card>
-              ))}
-            </Fragment>
-          ))}
-        </div>
-      </Card>
+      <HeaderSection title='Certifications' subTitle='General Courses and Specializations' icon={IconNames.BADGE} />
+      <Divider />
+      <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2'>
+        {certificationSections.map((parentSkill, parentSkillId) => (
+          <Fragment key={`${parentSkill}-${parentSkillId}`}>
+            {parentSkill.skills.map((skill, skillId) => (
+              <Card
+                key={`${skill}-${skillId}`}
+                className='rounded-md! shadow-lg! pl-0! pr-0! pb-0!'
+                style={{ backgroundColor: parentSkill.colorCode }}
+              >
+                <Tooltip content={'See more'}>
+                  <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
+                </Tooltip>
+                <div className='flex flex-col items-center h-64 overflow-auto'>
+                  <img className='w-32! h-32! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
+                  <Card className='rounded-md! w-full! h-32 overflow-auto'>
+                    <div className='flex flex-col items-center text-center'>
+                      <H4>{skill.title}</H4>
+                      <H6>{parentSkill.sectionTitle}</H6>
+                    </div>
+                  </Card>
+                </div>
+              </Card>
+            ))}
+          </Fragment>
+        ))}
+      </div>
     </MainContent>
   )
 }

@@ -1,5 +1,5 @@
 import { Card, H1, Spinner, Text } from '@blueprintjs/core'
-import { useTheme } from '../hooks/Context'
+import { useTheme } from '../hooks/context'
 
 export default function FallBackComponent() {
   const { isDark } = useTheme()

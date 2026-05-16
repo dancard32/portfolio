@@ -1,9 +1,10 @@
-import { H1, H3, Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard } from '@blueprintjs/core'
+import { Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Intent } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
-import { useTheme } from '../../../hooks/Context'
-import { TooltipIconifyIcon } from '../../../components/TooltipIconifyIcon'
-import MainContent from '../../../components/MainContent'
+import { useTheme } from '../../../hooks/context'
+import { TooltipIconifyIcon } from '../../../components/tooltip-iconify-icon'
+import MainContent from '../../../components/main-content'
+import HeaderSection from '../../../components/header-section'
 
 interface experienceSectionSkill {
   position: string
@@ -352,98 +353,97 @@ export default function ExperiencePage() {
 
   return (
     <MainContent className='experience-page'>
-      <div className='flex flex-col gap-y-2! md:p-4! p-2!'>
-        <div className='flex flex-col gap-1 items-center'>
-          <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
-            Experience
-          </H1>
-          <div className='flex flex-row flex-wrap items-center gap-2'>
-            <Icon icon={IconNames.BRIEFCASE} />
-            <H3 className='my-auto!'>Work, Internships and Volunteering</H3>
-          </div>
-          I have been working full-time post-graduation, and all my past work experiences can be found here!
-        </div>
-        <Divider />
-        {experiences.map((experience, experienceId) => {
-          return (
-            <Section
-              key={`experience-${experienceId}`}
-              className='p-2! md:p-4!'
-              title={experience.experienceTitle}
-              icon={<Icon icon={experience.icon} size={IconSize.LARGE} />}
-              collapsible={true}
-              collapseProps={{ defaultIsOpen: experience.defaultIsOpen }}
-            >
-              <div className='flex flex-col gap-2 p-1 md:p-2'>
-                {experience.sections.map((section, sectionId) => {
-                  const TagElement =
-                    section.companyUrl !== null ? (
-                      <Tag onClick={() => window.open(section.companyUrl, '_blank')} icon={IconNames.OFFICE}>
-                        <a href={section.companyUrl} target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
-                          {section.company}
-                        </a>
-                      </Tag>
-                    ) : (
-                      <Tag icon={IconNames.OFFICE}>
-                        <a style={{ color: Colors.BLUE5 }}>{section.company}</a>
-                      </Tag>
-                    )
-
-                  const CompoundTagElement = (
-                    <CompoundTag intent='primary' endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent={section.officeCity}>
-                      <span>{section.officeState}</span>
-                    </CompoundTag>
+      <HeaderSection
+        title='Experience'
+        subTitle='Work, Internships and Volunteering'
+        description='I have been working full-time post-graduation, and all my past work experiences can be found here!'
+        icon={IconNames.BRIEFCASE}
+      />
+      <Divider />
+      {experiences.map((experience, experienceId) => {
+        return (
+          <Section
+            key={`experience-${experienceId}`}
+            className='p-2! md:p-4!'
+            title={experience.experienceTitle}
+            icon={<Icon icon={experience.icon} size={IconSize.LARGE} />}
+            collapsible={true}
+            collapseProps={{ defaultIsOpen: experience.defaultIsOpen }}
+          >
+            <div className='flex flex-col gap-2 p-1 md:p-2'>
+              {experience.sections.map((section, sectionId) => {
+                const TagElement =
+                  section.companyUrl !== null ? (
+                    <Tag onClick={() => window.open(section.companyUrl, '_blank')} icon={IconNames.OFFICE}>
+                      <a href={section.companyUrl} target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
+                        {section.company}
+                      </a>
+                    </Tag>
+                  ) : (
+                    <Tag icon={IconNames.OFFICE}>
+                      <a style={{ color: Colors.BLUE5 }}>{section.company}</a>
+                    </Tag>
                   )
 
-                  const rightElementIfWeb = (
-                    <span className='text-right'>
-                      {section.dateStart} - {section.dateEnd}
-                      <br />
-                      {CompoundTagElement}
-                    </span>
-                  )
+                const CompoundTagElement = (
+                  <CompoundTag
+                    intent={Intent.PRIMARY}
+                    endIcon={IconNames.GLOBE}
+                    icon={IconNames.MAP_MARKER}
+                    leftContent={section.officeCity}
+                  >
+                    <span>{section.officeState}</span>
+                  </CompoundTag>
+                )
 
-                  return (
-                    <Section
-                      key={`${section}-${sectionId}`}
-                      className='rounded-md! p-2! md:p-4!'
-                      title={<H4>{section.position}</H4>}
-                      icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.companyLogo} />}
-                      subtitle={
-                        <>
-                          {TagElement}
-                          {isMobile ? rightElementIfWeb : undefined}
-                        </>
-                      }
-                      rightElement={!isMobile ? rightElementIfWeb : undefined}
-                    >
-                      <SectionCard className='flex flex-col gap-2'>
-                        {section.jobDescription}
-                        <div>
-                          {section.jobBulletPoints.map((bulletPoint, idx) => (
-                            <div key={idx} className='flex flex-row gap-2'>
-                              <Icon icon={IconNames.CIRCLE} />
-                              <span className='text-md!'>{bulletPoint}</span>
-                            </div>
-                          ))}
-                        </div>
-                        <div className='flex flex-wrap gap-1'>
-                          {section.jobTags.map((jobTag) => (
-                            <Tag key={jobTag}>{jobTag}</Tag>
-                          ))}
-                        </div>
-                        <div className='md:w-1/2 w-5/6 mx-auto'>
-                          <TooltipIconifyIcon skillsDictionary={section.jobSkills} />
-                        </div>
-                      </SectionCard>
-                    </Section>
-                  )
-                })}
-              </div>
-            </Section>
-          )
-        })}
-      </div>
+                const rightElementIfWeb = (
+                  <span className='text-right'>
+                    {section.dateStart} - {section.dateEnd}
+                    <br />
+                    {CompoundTagElement}
+                  </span>
+                )
+
+                return (
+                  <Section
+                    key={`${section}-${sectionId}`}
+                    className='rounded-md! p-2! md:p-4!'
+                    title={<H4>{section.position}</H4>}
+                    icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.companyLogo} />}
+                    subtitle={
+                      <>
+                        {TagElement}
+                        {isMobile ? rightElementIfWeb : undefined}
+                      </>
+                    }
+                    rightElement={!isMobile ? rightElementIfWeb : undefined}
+                  >
+                    <SectionCard className='flex flex-col gap-2'>
+                      {section.jobDescription}
+                      <div>
+                        {section.jobBulletPoints.map((bulletPoint, idx) => (
+                          <div key={idx} className='flex flex-row gap-2'>
+                            <Icon icon={IconNames.CIRCLE} />
+                            <span className='text-md!'>{bulletPoint}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className='flex flex-wrap gap-1'>
+                        {section.jobTags.map((jobTag) => (
+                          <Tag key={jobTag}>{jobTag}</Tag>
+                        ))}
+                      </div>
+                      <div className='md:w-1/2 w-5/6 mx-auto'>
+                        <TooltipIconifyIcon skillsDictionary={section.jobSkills} />
+                      </div>
+                    </SectionCard>
+                  </Section>
+                )
+              })}
+            </div>
+          </Section>
+        )
+      })}
     </MainContent>
   )
 }

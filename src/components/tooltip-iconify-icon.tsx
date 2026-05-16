@@ -1,6 +1,6 @@
 import { Spinner, Tooltip } from '@blueprintjs/core'
-import { useTheme } from '../hooks/Context'
-import IconifyIcon from './IconifyIcon'
+import { useTheme } from '../hooks/context'
+import IconifyIcon from './iconify-icon'
 import { Suspense } from 'react'
 
 interface DictionaryToolTipProps {
