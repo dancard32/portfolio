@@ -33,279 +33,279 @@ interface educationCalloutSection {
   skills: educationCalloutSkills[]
 }
 
+const experiences: educationSectionSkill[] = [
+  {
+    degree: 'Masters of Science in Computer Science',
+    degreeConcentration: 'Computer Science - Computing Systems',
+    degreeUrl: 'https://omscs.gatech.edu/',
+    college: 'Georgia Institute of Technology',
+    collegeLogo: 'images/GT_logo.webp',
+    collegeUrl: 'https://www.gatech.edu/',
+    dateStart: 'August 2022',
+    dateEnd: 'Present',
+    gpa: '3.5',
+    collegeCity: 'Atlanta',
+    collegeState: 'Georgia',
+    classes: ['Machine Learning for Trading', 'Computer Networks'],
+    accolades: ['Teaching Assistant for Academic Integrity'],
+  },
+  {
+    degree: 'Masters of Science in Engineering',
+    degreeConcentration: 'Aerospace Engineering - Computational Methods',
+    degreeUrl: 'https://aero.engin.umich.edu/',
+    diplomaUrl: 'pdfs/Diploma_MSE.pdf',
+    college: 'University of Michigan',
+    collegeLogo: 'images/UM_Logo.webp',
+    collegeUrl: 'https://umich.edu/',
+    dateStart: 'August 2020',
+    dateEnd: 'May 2021',
+    gpa: '3.91',
+    collegeCity: 'Ann Arbor',
+    collegeState: 'Michigan',
+    classes: [
+      'Computational Fluid Dynamics I',
+      'Computational Methods for Aerospace Engineering',
+      'Partial Differential Equations',
+      'Rocket Propulsion',
+      'Electric Propulsion',
+      'Space Policy and Management',
+    ],
+    accolades: ['Graduate Student Instructor'],
+  },
+  {
+    degree: 'Bachelors of Science in Engineering',
+    degreeConcentration: 'Aerospace Engineering',
+    degreeUrl: 'https://aero.engin.umich.edu/',
+    diplomaUrl: 'pdfs/Diploma_BSE.pdf',
+    college: 'University of Michigan',
+    collegeLogo: 'images/UM_Logo.webp',
+    collegeUrl: 'https://umich.edu/',
+    dateStart: 'September 2018',
+    dateEnd: 'August 2020',
+    gpa: '3.91',
+    collegeCity: 'Ann Arbor',
+    collegeState: 'Michigan',
+    classes: [
+      'Gas Dynamics',
+      'Aerospace Propulsion',
+      'Aerospace Structures',
+      'Aerodynamics',
+      'Vibration and Dynamics',
+      'Spacecraft Dynamics',
+      'Electrical Circuits Analysis',
+      'Space Mission Design',
+      'Aerospace Controls',
+    ],
+    accolades: ['Summa Cum Laude', "Dean's List", 'University Honors', '1st Generation Engineer', '1st Generation STEM'],
+  },
+]
+
+const skillSections: educationCalloutSection[] = [
+  {
+    sectionTitle: 'Programming language',
+    colorCode: '#a83865',
+    skills: [
+      {
+        title: 'Python',
+        logo: 'images/Python-logo.webp',
+        calloutUrl: 'https://www.python.org/',
+      },
+      {
+        title: 'HTML',
+        logo: 'images/HTML5-logo.webp',
+        calloutUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+      },
+      {
+        title: 'CSS',
+        logo: 'images/CSS3-logo.webp',
+        calloutUrl: 'https://www.css3.info/',
+      },
+      {
+        title: 'LaTeX',
+        logo: 'images/LaTeX-logo.webp',
+        calloutUrl: 'https://www.latex-project.org/',
+      },
+      {
+        title: 'React',
+        logo: 'images/React-logo.webp',
+        calloutUrl: 'https://reactjs.org/',
+      },
+      {
+        title: 'C++',
+        logo: 'images/C++-logo.webp',
+        calloutUrl: 'https://www.cplusplus.com/',
+      },
+      {
+        title: 'Arduino',
+        logo: 'images/Arduino-logo.webp',
+        calloutUrl: 'https://www.arduino.cc/',
+      },
+    ],
+  },
+  {
+    sectionTitle: 'Supporting Software',
+    colorCode: '#faae16',
+    skills: [
+      {
+        title: 'Docker',
+        logo: 'images/Docker-logo.webp',
+        calloutUrl: 'https://docker.com/',
+      },
+      {
+        title: 'Kubernetes',
+        logo: 'images/Kubernetes-logo.webp',
+        calloutUrl: 'https://kubernetes.io/',
+      },
+      {
+        title: 'Github',
+        logo: 'images/Github-logo.webp',
+        calloutUrl: 'https://github.com/',
+      },
+      {
+        title: 'Linux',
+        logo: 'images/Linux-logo.webp',
+        calloutUrl: 'https://www.linux.org/',
+      },
+      {
+        title: 'SQL Lite',
+        logo: 'images/Sqlite-logo.webp',
+        calloutUrl: 'https://www.sqlite.org/index.html',
+      },
+      {
+        title: 'Ubuntu',
+        logo: 'images/Ubuntu-logo.webp',
+        calloutUrl: 'https://ubuntu.com/',
+      },
+      {
+        title: 'Git',
+        logo: 'images/Git-logo.webp',
+        calloutUrl: 'https://git-scm.com/',
+      },
+    ],
+  },
+  {
+    sectionTitle: 'Engineering Skills',
+    colorCode: '#a34ca6',
+    skills: [
+      {
+        title: 'Oscilloscope',
+        logo: 'images/Oscope-logo.webp',
+        calloutUrl: 'https://en.wikipedia.org/wiki/Oscilloscope',
+      },
+      {
+        title: 'Multimeter',
+        logo: 'images/Multimeter-logo.webp',
+        calloutUrl: 'https://en.wikipedia.org/wiki/Multimeter',
+      },
+      {
+        title: 'Fusion 360',
+        logo: 'images/Fusion-logo.webp',
+        calloutUrl: 'https://www.autodesk.com/products/fusion-360/overview',
+      },
+      {
+        title: 'Cura',
+        logo: 'images/Cura-logo.webp',
+        calloutUrl: 'https://ultimaker.com/software/ultimaker-cura',
+      },
+      {
+        title: 'NX',
+        logo: 'images/NX-logo.webp',
+        calloutUrl: 'https://www.plm.automation.siemens.com/global/en/products/nx/',
+      },
+      {
+        title: 'ExpressPCB',
+        logo: 'images/ExpressPCB-logo.webp',
+        calloutUrl: 'https://www.expresspcb.com/',
+      },
+      {
+        title: 'SolidWorks',
+        logo: 'images/SWX-logo.webp',
+        calloutUrl: 'https://www.solidworks.com/',
+      },
+    ],
+  },
+]
+
+const certificationSections: educationCalloutSection[] = [
+  {
+    sectionTitle: 'Python Data Science | University of Michigan, Coursera',
+    colorCode: '#8C151599',
+    skills: [
+      {
+        title: 'Applied Machine Learning in Python',
+        logo: 'images/pds_machineLearning.webp',
+        calloutUrl: 'cs_certifications/Applied Machine Learning in Python.pdf',
+      },
+      {
+        title: 'Introduction to Data Science in Python',
+
+        logo: 'images/pds_dataScience.webp',
+        calloutUrl: 'cs_certifications/Introduction to Data Science in Python.pdf',
+      },
+      {
+        title: 'Applied Text Mining in Python',
+        logo: 'images/pds_textMining.webp',
+        calloutUrl: 'cs_certifications/Applied Text Mining in Python.pdf',
+      },
+      {
+        title: 'Applied Social Network Analysis in Python',
+        logo: 'images/pds_networkAnalysis.webp',
+        calloutUrl: 'cs_certifications/Applied Social Network Analysis in Python.pdf',
+      },
+      {
+        title: 'Applied Plotting, Charting & Data Representation in Python',
+        logo: 'images/pds_dataRep.webp',
+        calloutUrl: 'cs_certifications/Applied Plotting, Charting & Data Representation in Python.pdf',
+      },
+    ],
+  },
+  {
+    sectionTitle: 'Python for Everybody | University of Michigan, Coursera',
+    colorCode: '#47A048',
+    skills: [
+      {
+        title: 'Python Data Structures',
+        logo: 'images/p4e_dataStructures.webp',
+        calloutUrl: 'cs_certifications/Python Data Structures.pdf',
+      },
+
+      {
+        title: 'Programming for Everybody (Getting Started with Python)',
+        logo: 'images/p4e_gettingStarted.webp',
+        calloutUrl: 'cs_certifications/Programming for Everybody (Getting Started with Python).pdf',
+      },
+      {
+        title: 'Using Databases with Python',
+        logo: 'images/p4e_databases.webp',
+        calloutUrl: 'cs_certifications/Using Databases with Python.pdf',
+      },
+      {
+        title: 'Using Python to Access Web Data',
+        logo: 'images/p4e_webData.webp',
+        calloutUrl: 'cs_certifications/Using Python to Access Web Data.pdf',
+      },
+    ],
+  },
+  {
+    sectionTitle: 'Django for Everybody | University of Michigan, Coursera',
+    colorCode: '#ffbfae',
+    skills: [
+      {
+        title: 'Web Application Technologies and Django',
+        logo: 'images/django_webTech.webp',
+        calloutUrl: 'cs_certifications/Web Application Technologies and Django.pdf',
+      },
+      {
+        title: 'Building Web Applications in Django',
+        logo: 'images/django_webApps.webp',
+        calloutUrl: 'cs_certifications/Building Web Applications in Django.pdf',
+      },
+    ],
+  },
+]
+
 export default function EducationPage() {
   const { isMobile } = useTheme()
-
-  const experiences: educationSectionSkill[] = [
-    {
-      degree: 'Masters of Science in Computer Science',
-      degreeConcentration: 'Computer Science - Computing Systems',
-      degreeUrl: 'https://omscs.gatech.edu/',
-      college: 'Georgia Institute of Technology',
-      collegeLogo: 'images/GT_logo.webp',
-      collegeUrl: 'https://www.gatech.edu/',
-      dateStart: 'August 2022',
-      dateEnd: 'Present',
-      gpa: '3.5',
-      collegeCity: 'Atlanta',
-      collegeState: 'Georgia',
-      classes: ['Machine Learning for Trading', 'Computer Networks'],
-      accolades: ['Teaching Assistant for Academic Integrity'],
-    },
-    {
-      degree: 'Masters of Science in Engineering',
-      degreeConcentration: 'Aerospace Engineering - Computational Methods',
-      degreeUrl: 'https://aero.engin.umich.edu/',
-      diplomaUrl: 'pdfs/Diploma_MSE.pdf',
-      college: 'University of Michigan',
-      collegeLogo: 'images/UM_Logo.webp',
-      collegeUrl: 'https://umich.edu/',
-      dateStart: 'August 2020',
-      dateEnd: 'May 2021',
-      gpa: '3.91',
-      collegeCity: 'Ann Arbor',
-      collegeState: 'Michigan',
-      classes: [
-        'Computational Fluid Dynamics I',
-        'Computational Methods for Aerospace Engineering',
-        'Partial Differential Equations',
-        'Rocket Propulsion',
-        'Electric Propulsion',
-        'Space Policy and Management',
-      ],
-      accolades: ['Graduate Student Instructor'],
-    },
-    {
-      degree: 'Bachelors of Science in Engineering',
-      degreeConcentration: 'Aerospace Engineering',
-      degreeUrl: 'https://aero.engin.umich.edu/',
-      diplomaUrl: 'pdfs/Diploma_BSE.pdf',
-      college: 'University of Michigan',
-      collegeLogo: 'images/UM_Logo.webp',
-      collegeUrl: 'https://umich.edu/',
-      dateStart: 'September 2018',
-      dateEnd: 'August 2020',
-      gpa: '3.91',
-      collegeCity: 'Ann Arbor',
-      collegeState: 'Michigan',
-      classes: [
-        'Gas Dynamics',
-        'Aerospace Propulsion',
-        'Aerospace Structures',
-        'Aerodynamics',
-        'Vibration and Dynamics',
-        'Spacecraft Dynamics',
-        'Electrical Circuits Analysis',
-        'Space Mission Design',
-        'Aerospace Controls',
-      ],
-      accolades: ['Summa Cum Laude', "Dean's List", 'University Honors', '1st Generation Engineer', '1st Generation STEM'],
-    },
-  ]
-
-  const skillSections: educationCalloutSection[] = [
-    {
-      sectionTitle: 'Programming language',
-      colorCode: '#a83865',
-      skills: [
-        {
-          title: 'Python',
-          logo: 'images/Python-logo.webp',
-          calloutUrl: 'https://www.python.org/',
-        },
-        {
-          title: 'HTML',
-          logo: 'images/HTML5-logo.webp',
-          calloutUrl: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
-        },
-        {
-          title: 'CSS',
-          logo: 'images/CSS3-logo.webp',
-          calloutUrl: 'https://www.css3.info/',
-        },
-        {
-          title: 'LaTeX',
-          logo: 'images/LaTeX-logo.webp',
-          calloutUrl: 'https://www.latex-project.org/',
-        },
-        {
-          title: 'React',
-          logo: 'images/React-logo.webp',
-          calloutUrl: 'https://reactjs.org/',
-        },
-        {
-          title: 'C++',
-          logo: 'images/C++-logo.webp',
-          calloutUrl: 'https://www.cplusplus.com/',
-        },
-        {
-          title: 'Arduino',
-          logo: 'images/Arduino-logo.webp',
-          calloutUrl: 'https://www.arduino.cc/',
-        },
-      ],
-    },
-    {
-      sectionTitle: 'Supporting Software',
-      colorCode: '#faae16',
-      skills: [
-        {
-          title: 'Docker',
-          logo: 'images/Docker-logo.webp',
-          calloutUrl: 'https://docker.com/',
-        },
-        {
-          title: 'Kubernetes',
-          logo: 'images/Kubernetes-logo.webp',
-          calloutUrl: 'https://kubernetes.io/',
-        },
-        {
-          title: 'Github',
-          logo: 'images/Github-logo.webp',
-          calloutUrl: 'https://github.com/',
-        },
-        {
-          title: 'Linux',
-          logo: 'images/Linux-logo.webp',
-          calloutUrl: 'https://www.linux.org/',
-        },
-        {
-          title: 'SQL Lite',
-          logo: 'images/Sqlite-logo.webp',
-          calloutUrl: 'https://www.sqlite.org/index.html',
-        },
-        {
-          title: 'Ubuntu',
-          logo: 'images/Ubuntu-logo.webp',
-          calloutUrl: 'https://ubuntu.com/',
-        },
-        {
-          title: 'Git',
-          logo: 'images/Git-logo.webp',
-          calloutUrl: 'https://git-scm.com/',
-        },
-      ],
-    },
-    {
-      sectionTitle: 'Engineering Skills',
-      colorCode: '#a34ca6',
-      skills: [
-        {
-          title: 'Oscilloscope',
-          logo: 'images/Oscope-logo.webp',
-          calloutUrl: 'https://en.wikipedia.org/wiki/Oscilloscope',
-        },
-        {
-          title: 'Multimeter',
-          logo: 'images/Multimeter-logo.webp',
-          calloutUrl: 'https://en.wikipedia.org/wiki/Multimeter',
-        },
-        {
-          title: 'Fusion 360',
-          logo: 'images/Fusion-logo.webp',
-          calloutUrl: 'https://www.autodesk.com/products/fusion-360/overview',
-        },
-        {
-          title: 'Cura',
-          logo: 'images/Cura-logo.webp',
-          calloutUrl: 'https://ultimaker.com/software/ultimaker-cura',
-        },
-        {
-          title: 'NX',
-          logo: 'images/NX-logo.webp',
-          calloutUrl: 'https://www.plm.automation.siemens.com/global/en/products/nx/',
-        },
-        {
-          title: 'ExpressPCB',
-          logo: 'images/ExpressPCB-logo.webp',
-          calloutUrl: 'https://www.expresspcb.com/',
-        },
-        {
-          title: 'SolidWorks',
-          logo: 'images/SWX-logo.webp',
-          calloutUrl: 'https://www.solidworks.com/',
-        },
-      ],
-    },
-  ]
-
-  const certificationSections: educationCalloutSection[] = [
-    {
-      sectionTitle: 'Python Data Science | University of Michigan, Coursera',
-      colorCode: '#8C151599',
-      skills: [
-        {
-          title: 'Applied Machine Learning in Python',
-          logo: 'images/pds_machineLearning.webp',
-          calloutUrl: 'cs_certifications/Applied Machine Learning in Python.pdf',
-        },
-        {
-          title: 'Introduction to Data Science in Python',
-
-          logo: 'images/pds_dataScience.webp',
-          calloutUrl: 'cs_certifications/Introduction to Data Science in Python.pdf',
-        },
-        {
-          title: 'Applied Text Mining in Python',
-          logo: 'images/pds_textMining.webp',
-          calloutUrl: 'cs_certifications/Applied Text Mining in Python.pdf',
-        },
-        {
-          title: 'Applied Social Network Analysis in Python',
-          logo: 'images/pds_networkAnalysis.webp',
-          calloutUrl: 'cs_certifications/Applied Social Network Analysis in Python.pdf',
-        },
-        {
-          title: 'Applied Plotting, Charting & Data Representation in Python',
-          logo: 'images/pds_dataRep.webp',
-          calloutUrl: 'cs_certifications/Applied Plotting, Charting & Data Representation in Python.pdf',
-        },
-      ],
-    },
-    {
-      sectionTitle: 'Python for Everybody | University of Michigan, Coursera',
-      colorCode: '#47A048',
-      skills: [
-        {
-          title: 'Python Data Structures',
-          logo: 'images/p4e_dataStructures.webp',
-          calloutUrl: 'cs_certifications/Python Data Structures.pdf',
-        },
-
-        {
-          title: 'Programming for Everybody (Getting Started with Python)',
-          logo: 'images/p4e_gettingStarted.webp',
-          calloutUrl: 'cs_certifications/Programming for Everybody (Getting Started with Python).pdf',
-        },
-        {
-          title: 'Using Databases with Python',
-          logo: 'images/p4e_databases.webp',
-          calloutUrl: 'cs_certifications/Using Databases with Python.pdf',
-        },
-        {
-          title: 'Using Python to Access Web Data',
-          logo: 'images/p4e_webData.webp',
-          calloutUrl: 'cs_certifications/Using Python to Access Web Data.pdf',
-        },
-      ],
-    },
-    {
-      sectionTitle: 'Django for Everybody | University of Michigan, Coursera',
-      colorCode: '#ffbfae',
-      skills: [
-        {
-          title: 'Web Application Technologies and Django',
-          logo: 'images/django_webTech.webp',
-          calloutUrl: 'cs_certifications/Web Application Technologies and Django.pdf',
-        },
-        {
-          title: 'Building Web Applications in Django',
-          logo: 'images/django_webApps.webp',
-          calloutUrl: 'cs_certifications/Building Web Applications in Django.pdf',
-        },
-      ],
-    },
-  ]
 
   return (
     <MainContent className='education-page'>

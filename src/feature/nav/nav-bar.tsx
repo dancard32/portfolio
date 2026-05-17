@@ -37,8 +37,29 @@ export default function ResponsiveNavbar() {
     },
   ]
 
+  const navBarButtons = HeaderButtonGroup.map((item) => {
+    return (
+      <div key={item.id} className='flex flex-col pl-2 pr-2'>
+        <Button
+          className='rounded-sm!'
+          id={item.id}
+          text={isMobile ? undefined : item.displayName}
+          icon={item.icon}
+          active={selectedTabId === item.id}
+          size='large'
+          variant='minimal'
+          onClick={() => {
+            setSelectedTabId(item.id)
+            navigate(item.id === 'home' ? 'portfolio/' : `portfolio/${item.id}`)
+          }}
+        />
+        {isMobile ? <span className='text-[8px] text-center'>{item.displayName}</span> : null}
+      </div>
+    )
+  })
+
   return (
-    <Navbar className={`h-[7vh]! sticky! ${isMobile ? 'bottom-0!' : 'top-0!'}`}>
+    <Navbar className={`${isMobile ? 'bottom-0! h-[7vh]!' : 'top-0! h-[5vh]! sticky!'}`}>
       <NavbarGroup className='w-full! justify-center! pt-4 pb-2 md:pt-4'>
         {isMobile ? null : (
           <>
@@ -48,26 +69,7 @@ export default function ResponsiveNavbar() {
             <NavbarDivider />
           </>
         )}
-        {HeaderButtonGroup.map((item) => {
-          return (
-            <div key={item.id} className='flex flex-col pl-2 pr-2'>
-              <Button
-                className='rounded-sm!'
-                id={item.id}
-                text={isMobile ? undefined : item.displayName}
-                icon={item.icon}
-                active={selectedTabId === item.id}
-                size='large'
-                variant='minimal'
-                onClick={() => {
-                  setSelectedTabId(item.id)
-                  navigate(item.id === 'home' ? 'portfolio/' : `portfolio/${item.id}`)
-                }}
-              />
-              {isMobile ? <span className='text-[8px] text-center'>{item.displayName}</span> : null}
-            </div>
-          )
-        })}
+        {navBarButtons}
         <NavbarDivider />
         <Tooltip placement='bottom' content={isDark ? 'Light Theme' : 'Dark Theme'}>
           <Button variant='minimal' icon={isDark ? IconNames.FLASH : IconNames.MOON} onClick={toggleDarkMode} />

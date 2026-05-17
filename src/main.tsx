@@ -26,7 +26,7 @@ export function App() {
     <Suspense fallback={<FallBackComponent />}>
       <div className={`${isDark ? 'bp6-dark' : 'bp6'} `}>
         {!isMobile ? <ResponsiveNavbar /> : null}
-        <div className={`main-content w-full h-[93vh]! ${bgColor} overflow-y-auto!`}>
+        <div className={`main-content w-full ${bgColor} overflow-y-auto! ${isMobile ? 'h-[93vh]!' :'h-[95vh]!'}`}>
           {useRoutes([...routes, { path: '*', element: <PageNotFound /> }])}
         </div>
         {!isMobile ? null : <ResponsiveNavbar />}
