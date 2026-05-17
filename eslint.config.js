@@ -7,7 +7,7 @@ export default [
     },
     rules: {
       'perfectionist/sort-imports': 'error',
-      'quotes': ['error', 'single'],
+      quotes: ['error', 'single'],
     },
   },
 ]

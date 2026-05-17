@@ -1,4 +1,4 @@
-import { Icon, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Intent } from '@blueprintjs/core'
+import { Icon, Colors, CompoundTag, Divider, Tag, Section, SectionCard, Intent } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
 import { useTheme } from '../../../hooks/context'
@@ -409,7 +409,7 @@ export default function ExperiencePage() {
                   <Section
                     key={`${section}-${sectionId}`}
                     className='rounded-md! p-2! md:p-4!'
-                    title={<H4>{section.position}</H4>}
+                    title={section.position}
                     icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.companyLogo} />}
                     subtitle={
                       <>
