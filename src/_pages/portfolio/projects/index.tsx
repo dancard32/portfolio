@@ -295,7 +295,7 @@ const engr: projectCalloutSkills[] = [
 
 export default function ProjectsPage() {
   const { isDark } = useTheme()
-  const bgColor = isDark ? Colors.DARK_GRAY3 : Colors.LIGHT_GRAY5
+  const bgColor = isDark ? Colors.DARK_GRAY2 : Colors.LIGHT_GRAY5
 
   return (
     <MainContent className='projects-page'>
@@ -317,7 +317,7 @@ export default function ProjectsPage() {
       />
 
       <Divider />
-      <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'>
         {coding.map((parentSkill, parentSkillId) => (
           <Card key={`${parentSkill}-${parentSkillId}`} className='rounded-md! shadow-lg! p-2!' style={{ backgroundColor: bgColor }}>
             <Tooltip content={'See more'}>
@@ -353,7 +353,7 @@ export default function ProjectsPage() {
       />
 
       <Divider />
-      <div className='grid grid-cols-1 md:grid-cols-4 gap-2'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'>
         {engr.map((parentSkill, parentSkillId) => (
           <Card key={`${parentSkill}-${parentSkillId}`} className={`rounded-md! shadow-lg! p-2!`} style={{ backgroundColor: bgColor }}>
             <Tooltip content={'See more'}>

@@ -149,8 +149,8 @@ export default function HomePage() {
             <img alt='Wave' src='https://raw.githubusercontent.com/ABSphreak/ABSphreak/master/gifs/Hi.gif' width='48px' />
           </H1>
           <div className='flex flex-row flex-wrap items-center gap-2'>
-            <Icon icon={IconNames.BRIEFCASE} />
             <H3 className='my-auto!'>
+            <Icon className='mx-2!' icon={IconNames.BRIEFCASE} />
               Forward Deployed Software Engineer @&nbsp;
               <Tag onClick={() => window.open('https://www.palantir.com/', '_blank')} icon={IconNames.OFFICE}>
                 <a href='https://www.palantir.com/' target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
@@ -195,11 +195,17 @@ export default function HomePage() {
       <Divider />
       <div className='flex flex-col gap-4 p-1 m-1 md:p-2 md:m-2'>
         {home.map((homeSection, arrayIndex) => (
-          <Section key={`${homeSection.title}-${arrayIndex}`} title={homeSection.title} icon={<Icon icon={homeSection.icon} size={IconSize.LARGE} />}>
+          <Section
+            key={`${homeSection.title}-${arrayIndex}`}
+            title={homeSection.title}
+            icon={<Icon icon={homeSection.icon} size={IconSize.LARGE} />}
+          >
             <SectionCard className='p-2'>
               <div className='flex flex-col'>
                 {homeSection.bulletPoints.map((bulletedPoint, arrayIndex) => (
-                  <span key={`${homeSection.title}-${bulletedPoint}-${arrayIndex}`} className='text-lg!'>{bulletedPoint}</span>
+                  <span key={`${homeSection.title}-${bulletedPoint}-${arrayIndex}`} className='text-lg!'>
+                    {bulletedPoint}
+                  </span>
                 ))}
               </div>
               <div className='pt-2 md:w-1/2 w-5/6 mx-auto'>

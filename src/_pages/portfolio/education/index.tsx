@@ -46,7 +46,7 @@ const experiences: educationSectionSkill[] = [
     gpa: '3.5',
     collegeCity: 'Atlanta',
     collegeState: 'Georgia',
-    classes: ['Machine Learning for Trading', 'Computer Networks'],
+    classes: ['Machine Learning for Trading', 'Computer Networks', 'Introduction to Information Security', 'Graduate Introduction to Operating Systems', 'Advanced Internet Computation', 'Data and Visual Analytics', 'Database Systems Implementation', 'Database System Concepts and Design'],
     accolades: ['Teaching Assistant for Academic Integrity'],
   },
   {
