@@ -150,7 +150,7 @@ export default function HomePage() {
           </H1>
           <div className='flex flex-row flex-wrap items-center gap-2'>
             <H3 className='my-auto!'>
-            <Icon className='mx-2!' icon={IconNames.BRIEFCASE} />
+              <Icon className='mx-2!' icon={IconNames.BRIEFCASE} />
               Forward Deployed Software Engineer @&nbsp;
               <Tag onClick={() => window.open('https://www.palantir.com/', '_blank')} icon={IconNames.OFFICE}>
                 <a href='https://www.palantir.com/' target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>

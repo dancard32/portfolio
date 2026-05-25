@@ -17,7 +17,10 @@ export default function HeaderSection({ title, subTitle, description, icon, butt
         {title}
       </H1>
       <div className='flex flex-row flex-wrap items-center gap-2'>
-        <H3 className='my-auto!'> <Icon icon={icon} /> {subTitle}</H3>
+        <H3 className='my-auto!'>
+          {' '}
+          <Icon icon={icon} /> {subTitle}
+        </H3>
       </div>
       {description}
       {button}
