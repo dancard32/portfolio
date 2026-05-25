@@ -1,0 +1,1 @@
+import{f as c,ao as i,a1 as o,r as D,D as l}from"./index-CmBS4hCG.js";const m=({className:s,compact:a=!1,tagName:e="div",...r})=>{const t=c(i,{[o]:a},s);return D.createElement(e,{...r,className:t})};m.displayName=`${l}.Divider`;export{m as D};
