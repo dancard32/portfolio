@@ -1,7 +1,6 @@
-import { Spinner, Tooltip } from '@blueprintjs/core'
+import { Tooltip } from '@blueprintjs/core'
 import { useTheme } from '../hooks/context'
 import IconifyIcon from './iconify-icon'
-import { Suspense } from 'react'
 
 interface DictionaryToolTipProps {
   iconifyIcon: string
@@ -21,17 +20,15 @@ export function TooltipIconifyIcon({ skillsDictionary }: TooltipIconifyIconProps
       {Object.keys(skillsDictionary).map((key) => (
         <Tooltip key={key} content={key} placement='bottom'>
           {typeof skillsDictionary[key] === 'string' ? (
-            <Suspense fallback={<Spinner />}>
-              <IconifyIcon fallback={<Spinner />} icon={skillsDictionary[key]} style={{ fontSize: fontSizeStyling }} />
-            </Suspense>
+            <IconifyIcon icon={skillsDictionary[key]} style={{ fontSize: fontSizeStyling }} />
           ) : (
-            <Suspense fallback={<Spinner />}>
-              <IconifyIcon
-                fallback={<Spinner />}
-                icon={skillsDictionary[key].iconifyIcon}
-                style={{ fontSize: fontSizeStyling, ...skillsDictionary[key].style }}
-              />
-            </Suspense>
+            <IconifyIcon
+              icon={skillsDictionary[key].iconifyIcon}
+              style={{
+                fontSize: fontSizeStyling,
+                ...skillsDictionary[key].style,
+              }}
+            />
           )}
         </Tooltip>
       ))}

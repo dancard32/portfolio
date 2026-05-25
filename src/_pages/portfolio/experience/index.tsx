@@ -1,10 +1,11 @@
-import { Icon, Colors, CompoundTag, Divider, Tag, Section, SectionCard, Intent } from '@blueprintjs/core'
+import { Icon, Colors, CompoundTag, Divider, Tag, Section, SectionCard, Intent, Spinner } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
 import { useTheme } from '../../../hooks/context'
 import { TooltipIconifyIcon } from '../../../components/tooltip-iconify-icon'
 import MainContent from '../../../components/main-content'
 import HeaderSection from '../../../components/header-section'
+import { useQuery } from '@tanstack/react-query'
 
 interface experienceSectionSkill {
   position: string
@@ -349,6 +350,23 @@ const experiences: experienceSkills[] = [
   },
 ]
 
+const CompanyLogo = ({ skill, className }: { skill: experienceSectionSkill; className?: string }) => {
+  const { isMobile } = useTheme()
+
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['Logo-logs', skill.companyLogo],
+    queryFn: async () => {
+      return fetch(skill.companyLogo ?? '').then((response) => response.blob())
+    },
+    enabled: !!skill.companyLogo,
+  })
+
+  if (isLoading) return <Spinner />
+  if (error || data === undefined) return <div>Error: {error?.message}</div>
+
+  return <img className={`object-contain ${isMobile ? 'w-8' : 'w-16'} ${className}`} src={URL.createObjectURL(data)} alt={`${skill.company} Image`} />
+}
+
 export default function ExperiencePage() {
   const { isMobile } = useTheme()
 
@@ -410,7 +428,7 @@ export default function ExperiencePage() {
                     key={`${section}-${sectionId}`}
                     className='rounded-md! p-2! md:p-4!'
                     title={section.position}
-                    icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.companyLogo} />}
+                    icon={<CompanyLogo skill={section} className='w-16! h-16! object-contain' />}
                     subtitle={
                       <>
                         {TagElement}

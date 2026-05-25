@@ -1,10 +1,11 @@
-import { H1, H3, Button, H2, CompoundTag, Tag, Divider, Icon, Colors, Intent, Section, SectionCard } from '@blueprintjs/core'
+import { H1, H3, Button, H2, CompoundTag, Tag, Divider, Icon, Colors, Intent, Section, SectionCard, Spinner } from '@blueprintjs/core'
 import { IconNames, IconSize } from '@blueprintjs/icons'
 import { useNavigate } from 'react-router'
 import { TooltipIconifyIcon } from '../../components/tooltip-iconify-icon'
 import ContactInfo from '../../components/contact-info'
 import type { BlueprintIcons_16Id } from '@blueprintjs/icons/lib/esm/generated/16px/blueprint-icons-16'
 import MainContent from '../../components/main-content'
+import { useQuery } from '@tanstack/react-query'
 
 interface homeSections {
   title: string
@@ -136,13 +137,27 @@ const home: homeSections[] = [
   },
 ]
 
+const PfpLogo = () => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['Logo-logs', 'SQ_PFP.jpg'],
+    queryFn: async () => {
+      return fetch('SQ_PFP.jpg').then((response) => response.blob())
+    },
+  })
+
+  if (isLoading) return <Spinner />
+  if (error || data === undefined) return <div>Error: {error?.message}</div>
+
+  return <img className='object-contain w-64 rounded-full!' src={URL.createObjectURL(data)} alt='Profile Picture' />
+}
+
 export default function HomePage() {
   const navigate = useNavigate()
 
   return (
     <MainContent className='home-page'>
       <div className='flex flex-col md:flex-row mx-auto! p-2 m-4 gap-2 md:pl-32 md:pr-32 '>
-        <img className='object-contain w-64 rounded-full!' src='SQ_PFP.jpg' alt='Profile Picture' />
+        <PfpLogo />
         <div className='flex flex-col gap-1'>
           <H1 className='flex flex-row items-center' style={{ fontFamily: 'impact' }}>
             Dan Card

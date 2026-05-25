@@ -1,9 +1,10 @@
-import { Card, H2, H6, Divider, Button, Tag, Intent, Tooltip, Colors } from '@blueprintjs/core'
+import { Card, H2, H6, Divider, Button, Tag, Intent, Tooltip, Colors, Spinner } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { TooltipIconifyIcon } from '../../../components/tooltip-iconify-icon'
 import { useTheme } from '../../../hooks/context'
 import MainContent from '../../../components/main-content'
 import HeaderSection from '../../../components/header-section'
+import { useQuery } from '@tanstack/react-query'
 
 interface projectCalloutSkills {
   title: string
@@ -293,6 +294,21 @@ const engr: projectCalloutSkills[] = [
   },
 ]
 
+const SkillLogo = ({ skill, className }: { skill: projectCalloutSkills; className?: string }) => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['Logo-logs', skill.logo],
+    queryFn: async () => {
+      return fetch(skill.logo ?? '').then((response) => response.blob())
+    },
+    enabled: !!skill.logo,
+  })
+
+  if (isLoading) return <Spinner />
+  if (error || data === undefined) return <div>Error: {error?.message}</div>
+
+  return <img className={`w-16! h-16! object-contain ${className || ''}`} src={URL.createObjectURL(data)} alt={`${skill.title} Image`} />
+}
+
 export default function ProjectsPage() {
   const { isDark } = useTheme()
   const bgColor = isDark ? Colors.DARK_GRAY2 : Colors.LIGHT_GRAY5
@@ -324,9 +340,6 @@ export default function ProjectsPage() {
               <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(parentSkill.calloutUrl, '_blank')} />
             </Tooltip>
             <div className='flex flex-col gap-2!'>
-              {parentSkill.logo ? (
-                <img className='w-16! h-16! object-contain' src={parentSkill.logo} alt={`${parentSkill.title} Image`} />
-              ) : null}
               <H2>{parentSkill.title}</H2>
               <H6>{parentSkill.description}</H6>
               {parentSkill.projectTags ? (
@@ -360,9 +373,7 @@ export default function ProjectsPage() {
               <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(parentSkill.calloutUrl, '_blank')} />
             </Tooltip>
             <div className='flex flex-col gap-2!'>
-              {parentSkill.logo ? (
-                <img className='w-32! h-32! object-contain mx-auto!' src={parentSkill.logo} alt={`${parentSkill.title} Image`} />
-              ) : null}
+              <SkillLogo skill={parentSkill} className='w-32! h-32! object-contain mx-auto!' />
               <H2>{parentSkill.title}</H2>
               <H6>{parentSkill.description}</H6>
               {parentSkill.projectTags ? (

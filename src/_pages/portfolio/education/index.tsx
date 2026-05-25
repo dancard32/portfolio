@@ -1,9 +1,10 @@
-import { Card, H6, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button, Tooltip, Intent } from '@blueprintjs/core'
+import { Card, H6, Colors, CompoundTag, Divider, Tag, Section, H4, SectionCard, Button, Tooltip, Intent, Spinner } from '@blueprintjs/core'
 import { IconNames } from '@blueprintjs/icons'
 import { useTheme } from '../../../hooks/context'
 import { Fragment } from 'react/jsx-runtime'
 import MainContent from '../../../components/main-content'
 import HeaderSection from '../../../components/header-section'
+import { useQuery } from '@tanstack/react-query'
 
 interface educationSectionSkill {
   degree: string
@@ -313,8 +314,125 @@ const certificationSections: educationCalloutSection[] = [
   },
 ]
 
+const EducationLogo = ({ logoUrl }: { logoUrl: string }) => {
+  const { isMobile } = useTheme()
+
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['Logo-logs', logoUrl],
+    queryFn: async () => {
+      return fetch(logoUrl).then((response) => response.blob())
+    },
+  })
+
+  if (isLoading) return <Spinner />
+  if (error || data === undefined) return <div>Error: {error?.message}</div>
+
+  return <img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={URL.createObjectURL(data)} alt='Company Logo' />
+}
+
+const SkillLogo = ({ skill, className }: { skill: educationCalloutSkills; className?: string }) => {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['Logo-logs', skill.logo],
+    queryFn: async () => {
+      return fetch(skill.logo).then((response) => response.blob())
+    },
+  })
+
+  if (isLoading) return <Spinner />
+  if (error || data === undefined) return <div>Error: {error?.message}</div>
+
+  return <img className={`w-16! h-16! object-contain ${className || ''}`} src={URL.createObjectURL(data)} alt={`${skill.title} Image`} />
+}
+
 export default function EducationPage() {
   const { isMobile } = useTheme()
+
+  const RenderSection = ({ section, sectionId }: { section: educationSectionSkill; sectionId: number }) => {
+    const collegeLogo = <EducationLogo logoUrl={section.collegeLogo} />
+
+    const TagElement =
+      section.collegeUrl !== null ? (
+        <Tag onClick={() => window.open(section.collegeUrl, '_blank')} icon={IconNames.OFFICE}>
+          <a href={section.collegeUrl} target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
+            {section.college}
+          </a>
+        </Tag>
+      ) : (
+        <Tag icon={IconNames.OFFICE}>
+          <a style={{ color: Colors.BLUE5 }}>{section.college}</a>
+        </Tag>
+      )
+
+    const CompoundTagElement = (
+      <CompoundTag intent={Intent.PRIMARY} endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent={section.collegeCity}>
+        <span>{section.collegeState}</span>
+      </CompoundTag>
+    )
+
+    const rightElementIfWeb = (
+      <span className='text-right'>
+        {section.dateStart} - {section.dateEnd}
+        <br />
+        GPA: {section.gpa}
+      </span>
+    )
+
+    return (
+      <Section
+        key={`section-${sectionId}`}
+        className='rounded-md!'
+        title={
+          <>
+            <div className='flex flex-row'>
+              <H4 className='my-auto!'>{section.degree} </H4>
+              <Button
+                icon={IconNames.SHARE}
+                variant='minimal'
+                aria-label='share'
+                onClick={() => window.open(section.degreeUrl, '_blank')}
+              />
+            </div>
+            <div className='flex flex-row'>
+              <H6 className='my-auto!'>{section.degreeConcentration}</H6>
+              {section.diplomaUrl ? (
+                <Button
+                  icon={IconNames.SHARE}
+                  variant='minimal'
+                  aria-label='share'
+                  onClick={() => window.open(section.diplomaUrl, '_blank')}
+                />
+              ) : null}
+            </div>
+          </>
+        }
+        icon={collegeLogo}
+        subtitle={
+          <>
+            {TagElement}
+            <br />
+            {CompoundTagElement}
+            {isMobile ? rightElementIfWeb : undefined}
+          </>
+        }
+        rightElement={!isMobile ? rightElementIfWeb : undefined}
+      >
+        <SectionCard className='flex flex-col gap-2 m-4!'>
+          <div className='flex flex-row flex-wrap gap-1'>
+            <span className='font-bold'>Coursework:</span>{' '}
+            {section.classes.map((courseName) => (
+              <Tag key={courseName}>{courseName}</Tag>
+            ))}
+          </div>
+          <div className='flex flex-row flex-wrap gap-1'>
+            <span className='font-bold'>Accolades:</span>
+            {section.accolades.map((accoladeName) => (
+              <Tag key={accoladeName}>{accoladeName}</Tag>
+            ))}
+          </div>
+        </SectionCard>
+      </Section>
+    )
+  }
 
   return (
     <MainContent className='education-page'>
@@ -329,88 +447,7 @@ export default function EducationPage() {
       <Divider />
       <div className='flex flex-col gap-2 p-2'>
         {experiences.map((section, sectionId) => {
-          const TagElement =
-            section.collegeUrl !== null ? (
-              <Tag onClick={() => window.open(section.collegeUrl, '_blank')} icon={IconNames.OFFICE}>
-                <a href={section.collegeUrl} target='_blank' rel='noopener noreferrer' style={{ color: Colors.BLUE5 }}>
-                  {section.college}
-                </a>
-              </Tag>
-            ) : (
-              <Tag icon={IconNames.OFFICE}>
-                <a style={{ color: Colors.BLUE5 }}>{section.college}</a>
-              </Tag>
-            )
-
-          const CompoundTagElement = (
-            <CompoundTag intent={Intent.PRIMARY} endIcon={IconNames.GLOBE} icon={IconNames.MAP_MARKER} leftContent={section.collegeCity}>
-              <span>{section.collegeState}</span>
-            </CompoundTag>
-          )
-
-          const rightElementIfWeb = (
-            <span className='text-right'>
-              {section.dateStart} - {section.dateEnd}
-              <br />
-              GPA: {section.gpa}
-            </span>
-          )
-
-          return (
-            <Section
-              key={`section-${sectionId}`}
-              className='rounded-md!'
-              title={
-                <>
-                  <div className='flex flex-row'>
-                    <H4 className='my-auto!'>{section.degree} </H4>
-                    <Button
-                      icon={IconNames.SHARE}
-                      variant='minimal'
-                      aria-label='share'
-                      onClick={() => window.open(section.degreeUrl, '_blank')}
-                    />
-                  </div>
-                  <div className='flex flex-row'>
-                    <H6 className='my-auto!'>{section.degreeConcentration}</H6>
-                    {section.diplomaUrl ? (
-                      <Button
-                        icon={IconNames.SHARE}
-                        variant='minimal'
-                        aria-label='share'
-                        onClick={() => window.open(section.diplomaUrl, '_blank')}
-                      />
-                    ) : null}
-                  </div>
-                </>
-              }
-              icon={<img className={`object-contain ${isMobile ? 'w-8' : 'w-16'}`} src={section.collegeLogo} />}
-              subtitle={
-                <>
-                  {TagElement}
-                  <br />
-                  {CompoundTagElement}
-                  {isMobile ? rightElementIfWeb : undefined}
-                </>
-              }
-              rightElement={!isMobile ? rightElementIfWeb : undefined}
-            >
-              <SectionCard className='flex flex-col gap-2 m-4!'>
-                <div className='flex flex-row flex-wrap gap-1'>
-                  <span className='font-bold'>Coursework:</span>{' '}
-                  {section.classes.map((courseName) => (
-                    <Tag key={courseName}>{courseName}</Tag>
-                  ))}
-                </div>
-                <div className='flex flex-row flex-wrap gap-1'>
-                  <span className='font-bold'>Accolades:</span>
-                  {section.accolades.map((accoladeName) => (
-                    <Tag key={accoladeName}>{accoladeName}</Tag>
-                  ))}
-                </div>
-              </SectionCard>
-            </Section>
-          )
+          return <RenderSection key={`section-${sectionId}`} section={section} sectionId={sectionId} />
         })}
       </div>
 
@@ -430,7 +467,7 @@ export default function EducationPage() {
                   <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
                 </Tooltip>
                 <div className='flex flex-col items-center overflow-auto'>
-                  <img className='w-16! h-16! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
+                  <SkillLogo skill={skill} />
                   <Card className='rounded-md! w-full! h-32 overflow-auto'>
                     <div className='flex flex-col items-center text-center'>
                       <H4>{skill.title}</H4>
@@ -459,7 +496,7 @@ export default function EducationPage() {
                   <Button icon={IconNames.SHARE} variant='minimal' onClick={() => window.open(skill.calloutUrl, '_blank')} />
                 </Tooltip>
                 <div className='flex flex-col items-center h-64 overflow-auto'>
-                  <img className='w-32! h-32! object-contain' src={skill.logo} alt={`${skill.title} Image`} />
+                  <SkillLogo skill={skill} className='w-32! h-32! object-contain' />
                   <Card className='rounded-md! w-full! h-32 overflow-auto'>
                     <div className='flex flex-col items-center text-center'>
                       <H4>{skill.title}</H4>

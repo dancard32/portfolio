@@ -15,6 +15,7 @@ import PageNotFound from './_pages/page-not-found'
 import ResponsiveNavbar from './feature/nav/nav-bar'
 import FallBackComponent from './components/fallback-component'
 import { ThemeProvider, useTheme } from './hooks/context'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 export function App() {
   const { isDark, isMobile } = useTheme()
@@ -37,12 +38,16 @@ export function App() {
 
 const app = createRoot(document.getElementById('root')!)
 
+const queryClient = new QueryClient()
+
 app.render(
   <StrictMode>
-    <BrowserRouter>
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <ThemeProvider>
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
   </StrictMode>
 )
