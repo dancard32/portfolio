@@ -364,7 +364,13 @@ const CompanyLogo = ({ skill, className }: { skill: experienceSectionSkill; clas
   if (isLoading) return <Spinner />
   if (error || data === undefined) return <div>Error: {error?.message}</div>
 
-  return <img className={`object-contain ${isMobile ? 'w-8' : 'w-16'} ${className}`} src={URL.createObjectURL(data)} alt={`${skill.company} Image`} />
+  return (
+    <img
+      className={`object-contain ${isMobile ? 'w-8' : 'w-16'} ${className}`}
+      src={URL.createObjectURL(data)}
+      alt={`${skill.company} Image`}
+    />
+  )
 }
 
 export default function ExperiencePage() {
